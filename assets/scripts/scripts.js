@@ -1,0 +1,168 @@
+$(function(){
+	
+	$('#CPF').mask('999.999.999-99', {reverse: true});
+	$('#Telefone').mask('(99) 9999-99999').on('change', function (event) 
+	{
+		var target, phone, element;
+		target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+		phone = target.value.replace(/\D/g, '');
+		element = $(target);
+		element.unmask();
+
+		if(phone.length == 0) 
+		{
+			element.mask('(99) 9999-9999?9');
+		}
+		if(phone.length == 11) 
+		{
+			element.mask('(99) 99999-9999');
+		}
+		if(phone.length == 10) 
+		{
+			element.mask('(99) 9999-9999');
+		}
+	});	
+	
+	//
+	// Handle dos campos incluidos para os adicionais
+	//    
+	$('#FormX').on('submit', function(event) 
+	{
+		//
+		// prevent default submit action
+		//        
+		event.preventDefault(); 		
+	});	
+
+	//
+	// Validate do Form
+	// 
+	$('#FormX').validate({
+
+		submitHandler: function(form)
+		{
+			//
+			// Desabilita o botão
+			//        
+			$('#enviar_dados').prop('disabled', true);			
+			
+			form.submit();
+		},
+		rules: 
+		{
+			'Nome': 
+			{
+				minlength: 5,  // <- here
+				maxlength: 40,
+				required: true,
+				lettersonly: true
+			},
+			'CPF': 
+			{
+				required: true,
+				valid_cpf: true,
+				validarRecorrenciaDia: true,
+			},
+			'Email': 
+			{
+				required: true,
+				email: true
+			},
+			'Telefone': 
+			{
+				required: true
+			}		
+		},
+		messages: 
+		{
+			'Nome': 
+			{
+				required: '<strong>NOME</strong> é um campo obrigatório.',
+				lettersonly: 'Favor inserir somente caracteres.',
+			},
+			'CPF': 
+			{
+				required: '<strong>CPF</strong> é um campo obrigatório.',
+			},			
+			'Email': 
+			{
+				required: '<strong>E-MAIL</strong> é um campo obrigatório.',
+				email: 'Digite um <strong>E-MAIL</strong> válido.',
+			},	
+			'Telefone': '<strong>TELEFONE</strong> é um campo obrigatório.',
+		},
+		highlight: function(element) 
+		{
+			$(element).closest('.form-control').addClass('is-invalid');
+			$(element).closest('.custom-select').addClass('is-invalid');
+			$(element).closest('.form-check-input').addClass('is-invalid');
+		},
+		unhighlight: function(element) 
+		{
+			$(element).closest('.form-control').removeClass('is-invalid');
+			$(element).closest('.custom-select').removeClass('is-invalid');
+			$(element).closest('.form-check-input').removeClass('is-invalid');
+		}
+	});
+	
+	//
+	// Valida para somente campo texto
+	//	
+	$.validator.addMethod("lettersonly", function(value, element) 
+	{
+		return this.optional(element) || /^[a-z áãâäàéêëèíîïìóõôöòúûüùçñ]+$/i.test(value);
+
+	}, 'Favor inserir somente caracteres.');
+
+	//
+	// Valida o select box do campo projetos
+	//	
+	$.validator.addMethod("greater", function(value, element) 
+	{
+		var dropdown_val = $('#Projeto').val();
+
+		if(dropdown_val > 0)
+		{
+		   return true;
+		}
+		else
+		{
+		   return false;
+		}
+	});
+
+	//
+	// Valida o CPF
+	//
+	$.validator.addMethod('valid_cpf', function(value, element)
+	{
+		return this.optional(element) || (valida_cpf(value) == true);
+		
+	}, '<strong>CPF</strong> inválido, insira um correto.');
+
+    //
+    // Verifica se o cara vai mais de doação por dia
+    //
+    $.validator.addMethod('validarRecorrenciaDia', function(value, element)
+    {
+        var response;
+        var value = value.replace('.', '').replace('.', '').replace('-', '');
+        
+        $.ajax({
+            type: 'GET',
+            async: false,
+            cache: false,
+            url: '/livres/ofertas/validarRecorrenciaDia/' + value,
+            success: function(msg)
+            {
+				//
+				// If problems exists, set response to true
+				//
+				response = (msg == 'true')? true : false;
+            }            
+		});
+        
+        return response;
+        
+    }, '<strong>CPF</strong> excedeu o numero de doações do dia.'); 	
+});

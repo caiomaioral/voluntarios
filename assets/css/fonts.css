@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {list-style-type:none; margin: 0; padding: 0;}
+
+/*Fonts*/
+@font-face{font-family: 'myriadpro-cond'; src: url('myriadpro-cond.eot'); src: url('myriadpro-cond.eot?#iefix') format('embedded-opentype'), url('myriadpro-cond.svg#myriadpro-cond') format('svg'), url('myriadpro-cond.woff') format('woff'), url('myriadpro-cond.ttf') format('truetype'); font-weight: normal; font-style: normal;}
+@font-face{font-family: 'myriadpro-bold'; src: url('myriadpro-bold.eot'); src: url('myriadpro-bold.eot?#iefix') format('embedded-opentype'), url('myriadpro-bold.svg#myriadpro-bold') format('svg'), url('myriadpro-bold.woff') format('woff'), url('myriadpro-bold.ttf') format('truetype'); font-weight: normal; font-style: normal;}
+@font-face{font-family: 'myriadpro-regular'; src: url('myriadpro-regular.eot'); src: url('myriadpro-regular.eot?#iefix') format('embedded-opentype'), url('myriadpro-regular.svg#myriadpro-regular') format('svg'), url('myriadpro-regular.woff') format('woff'), url('myriadpro-regular.ttf') format('truetype'); font-weight: normal; font-style: normal;}
+
+h1, h2, h3, h4{font-weight:normal;}
+h1, h2{font-family:myriadpro-bold;}
+h3, h4{font-family:myriadpro-cond;}
+h1{font-size:60px;}
+h2{font-size:48px;}
+h3{font-size:36px;}
+h4{font-size:24px;}

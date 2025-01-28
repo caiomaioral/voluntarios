@@ -1,0 +1,43 @@
+@charset "utf-8";
+/* CSS Document */
+
+.ajax
+{
+    display: none;
+    position: fixed;
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000(0,0,0,0.5);
+    z-index: 2;
+}
+
+.loader
+{
+    z-index: 290;
+    position: fixed;
+    width: 300px;
+    margin-left: -150px;
+    top: 40%;
+    left: 50%;
+	text-align: center;
+	border: 1px #FFF solid;
+	background-color: #cecece;
+}
+.loader img
+{
+	margin: 16px 8px;
+}
+* html .loader
+{
+    position: absolute;
+    margin-top: expression((document.body.scrollHeight / 4) + (0 - parseInt(this.offsetParent.clientHeight / 2) + (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop)) + 'px');
+}
