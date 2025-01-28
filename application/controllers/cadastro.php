@@ -340,7 +340,7 @@ class Cadastro extends MY_Controller {
         $mail_conteudo   .=   '</td></tr></table>';
 
         // Configure API key authorization: api-key
-        $credentials = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
+        
         // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
         // $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api-key', 'Bearer');
         // Configure API key authorization: partner-key
