@@ -51,6 +51,18 @@
 }
 
 .card-checkbox.custom-control-input:checked ~ .custom-control-label::before {
-	background-color: #148fa2; /* Change the color of the toggle container when it is checked */
-	border-color: #148fa2; /* Change the border color of the toggle container when it is checked */
+	background-color: #343a40; /* Change the color of the toggle container when it is checked */
+	border-color: #343a40; /* Change the border color of the toggle container when it is checked */
+}
+
+a {
+  color: #000;
+  text-decoration: #bfc2c4;
+  background-color: transparent;
+}
+
+a:hover {
+	color: #000;
+	text-decoration: underline;
+	background-color: transparent;
 }

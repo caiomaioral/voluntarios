@@ -52,7 +52,7 @@ $(function(){
 		{
 			'Nome': 
 			{
-				minlength: 5,  // <- here
+				minlength: 5,
 				maxlength: 40,
 				required: true,
 				lettersonly: true
@@ -61,7 +61,6 @@ $(function(){
 			{
 				required: true,
 				valid_cpf: true,
-				validarRecorrenciaDia: true,
 			},
 			'Email': 
 			{
@@ -71,7 +70,12 @@ $(function(){
 			'Telefone': 
 			{
 				required: true
-			}		
+			},
+			'Termos[]': 
+			{
+                required: true,
+                maxlength: 2
+            }		
 		},
 		messages: 
 		{
@@ -90,18 +94,25 @@ $(function(){
 				email: 'Digite um <strong>E-MAIL</strong> válido.',
 			},	
 			'Telefone': '<strong>TELEFONE</strong> é um campo obrigatório.',
+			'Termos[]': 
+			{
+                required: 'Você aceitar o <strong>TERMO</strong>.',
+                maxlength: "Check no more than {0} boxes"
+            }			
 		},
 		highlight: function(element) 
 		{
 			$(element).closest('.form-control').addClass('is-invalid');
 			$(element).closest('.custom-select').addClass('is-invalid');
 			$(element).closest('.form-check-input').addClass('is-invalid');
+			$(element).closest('.custom-control custom-switch').addClass('is-invalid');
 		},
 		unhighlight: function(element) 
 		{
 			$(element).closest('.form-control').removeClass('is-invalid');
 			$(element).closest('.custom-select').removeClass('is-invalid');
 			$(element).closest('.form-check-input').removeClass('is-invalid');
+			$(element).closest('.custom-control custom-switch').addClass('is-invalid');
 		}
 	});
 	
@@ -115,23 +126,6 @@ $(function(){
 	}, 'Favor inserir somente caracteres.');
 
 	//
-	// Valida o select box do campo projetos
-	//	
-	$.validator.addMethod("greater", function(value, element) 
-	{
-		var dropdown_val = $('#Projeto').val();
-
-		if(dropdown_val > 0)
-		{
-		   return true;
-		}
-		else
-		{
-		   return false;
-		}
-	});
-
-	//
 	// Valida o CPF
 	//
 	$.validator.addMethod('valid_cpf', function(value, element)
@@ -140,29 +134,4 @@ $(function(){
 		
 	}, '<strong>CPF</strong> inválido, insira um correto.');
 
-    //
-    // Verifica se o cara vai mais de doação por dia
-    //
-    $.validator.addMethod('validarRecorrenciaDia', function(value, element)
-    {
-        var response;
-        var value = value.replace('.', '').replace('.', '').replace('-', '');
-        
-        $.ajax({
-            type: 'GET',
-            async: false,
-            cache: false,
-            url: '/livres/ofertas/validarRecorrenciaDia/' + value,
-            success: function(msg)
-            {
-				//
-				// If problems exists, set response to true
-				//
-				response = (msg == 'true')? true : false;
-            }            
-		});
-        
-        return response;
-        
-    }, '<strong>CPF</strong> excedeu o numero de doações do dia.'); 	
 });

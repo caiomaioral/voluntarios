@@ -49,8 +49,9 @@
 
 <div class="row">
 	<div class="col-md-12 mb-3">
+		
 		<div class="custom-control custom-switch">
-			<input type="checkbox" name="Termos" class="custom-control-input card-checkbox" id="customSwitch1">
+			<input type="checkbox" name="Termos[]" class="custom-control-input card-checkbox" id="customSwitch1" value="<?php echo set_value('Termos'); ?>">
 			<label class="custom-control-label" for="customSwitch1">
 				Eu concordo com esses <a href="#">Termos e Condições</a>.
 			</label>
@@ -60,7 +61,7 @@
 
 <br>
 
-<div class="g-recaptcha" data-sitekey="6LcNVwsqAAAAANke5h78JPoWG5UYmfORb4A3Y4qH" data-action="Doar" data-callback="callback"></div>
+<!--<div class="g-recaptcha" data-sitekey="6LcNVwsqAAAAANke5h78JPoWG5UYmfORb4A3Y4qH" data-action="Doar" data-callback="callback"></div>-->
 
 <br>
 

@@ -25,7 +25,7 @@ class Cadastro extends MY_Controller {
     //
 	public function index()
 	{
-        $this->data['AddCss'] 		  	 =   load_css(array('site', 'example'));
+        $this->data['AddCss'] 		  	 =   load_css(array('site', 'examples'));
 		$this->data['AddJavascript']  	 =   load_js(array('libraries', 'scripts'));
 
 		$this->usable('cadastro');
@@ -77,44 +77,44 @@ class Cadastro extends MY_Controller {
             //
 			// Tabela de Doadores e Cartão
 			//
-			$Doador['Nome'] 	        =    mb_strtoupper(trim($this->input->post('Nome')));
-			$Doador['CPF'] 		        =    str_replace('-', '', str_replace('.', '', $this->input->post('CPF')));
-			$Doador['Email'] 	        =    mb_strtolower(trim($this->input->post('Email')));
-            $Doador['Telefone']         =    trim($this->input->post('Telefone'));
-			$Doador['IdProjeto']        =    $this->input->post('Projeto');
-			$Doador['Data']             =    date('Y-m-d H:i:s');           
+			//$Doador['Nome'] 	        =    mb_strtoupper(trim($this->input->post('Nome')));
+			//$Doador['CPF'] 		        =    str_replace('-', '', str_replace('.', '', $this->input->post('CPF')));
+			//$Doador['Email'] 	        =    mb_strtolower(trim($this->input->post('Email')));
+            //$Doador['Telefone']         =    trim($this->input->post('Telefone'));
+			//$Doador['IdProjeto']        =    $this->input->post('Projeto');
+			//$Doador['Data']             =    date('Y-m-d H:i:s');           
 			
 			//
 			// Criar arquivo de Pagamento
 			//
-            $Cartao['idProjeto']        =    $this->input->post('Projeto');
-			$Cartao['Nome']             =    mb_strtoupper(trim($this->input->post('Nome')));
-			$Cartao['CPF'] 	            =    str_replace('-', '', str_replace('.', '', $this->input->post('CPF')));
-			$Cartao['Valor']      		=    num_to_db($this->input->post('Valor'));
-			$Cartao['DataCadastro']     =    date('Y-m-d H:i:s');   
+            //$Cartao['idProjeto']        =    $this->input->post('Projeto');
+			//$Cartao['Nome']             =    mb_strtoupper(trim($this->input->post('Nome')));
+			//$Cartao['CPF'] 	            =    str_replace('-', '', str_replace('.', '', $this->input->post('CPF')));
+			//$Cartao['Valor']      		=    num_to_db($this->input->post('Valor'));
+			//$Cartao['DataCadastro']     =    date('Y-m-d H:i:s');   
 			
 			//
             // Chama a rotina de inclusão
             //
-			if($this->inscricao_model->check_person_donation($Doador['CPF']) == true)
-			{
-				$this->inscricao_model->insert_doador($Doador);
-			}
+			//if($this->inscricao_model->check_person_donation($Doador['CPF']) == true)
+			//{
+			//	$this->inscricao_model->insert_doador($Doador);
+			//}
 
 			//
 			// Verifica se o cara escolheu boleto (== 1 é cartão)
 			//
-            $this->inscricao_model->insert_pagamento($Cartao);
+            //$this->inscricao_model->insert_pagamento($Cartao);
 			
 			//
 			// Cria uma variavel Body para mostrar os dados
 			//
-			$this->session->set_flashdata('Body', array_merge($Doador, $Cartao));
+			//$this->session->set_flashdata('Body', array_merge($Doador, $Cartao));
 			
 			//
 			// Chama a confirmação
 			//			
-			redirect(base_url() . 'ofertas/confirmacao');
+			//redirect(base_url() . 'ofertas/confirmacao');
 		//}
 	}
 	
@@ -339,11 +339,10 @@ class Cadastro extends MY_Controller {
         $mail_conteudo   .=   '<br /><br /><b>E-mail enviado em ' . date('d/m/Y - H:i:s') . '.</b>';
         $mail_conteudo   .=   '</td></tr></table>';
 
+        //
         // Configure API key authorization: api-key
-        
-        // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-        // $config = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('api-key', 'Bearer');
-        // Configure API key authorization: partner-key
+        //
+        $credentials = SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '');
 
         $apiInstance = new SendinBlue\Client\Api\TransactionalEmailsApi(new GuzzleHttp\Client(), $credentials);
 
