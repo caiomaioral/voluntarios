@@ -71,7 +71,7 @@ $(function(){
 			{
 				required: true
 			},
-			'Termos[]': 
+			'Termos': 
 			{
                 required: true,
                 maxlength: 2
@@ -94,7 +94,7 @@ $(function(){
 				email: 'Digite um <strong>E-MAIL</strong> válido.',
 			},	
 			'Telefone': '<strong>TELEFONE</strong> é um campo obrigatório.',
-			'Termos[]': 
+			'Termos': 
 			{
                 required: 'Você aceitar o <strong>TERMO</strong>.',
                 maxlength: "Check no more than {0} boxes"

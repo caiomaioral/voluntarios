@@ -25,7 +25,7 @@ class Cadastro extends MY_Controller {
     //
 	public function index()
 	{
-        $this->data['AddCss'] 		  	 =   load_css(array('site', 'examples'));
+        $this->data['AddCss'] 		  	 =   load_css(array('site'));
 		$this->data['AddJavascript']  	 =   load_js(array('libraries', 'scripts'));
 
 		$this->usable('cadastro');
@@ -68,54 +68,27 @@ class Cadastro extends MY_Controller {
 	//
 	public function salvar()
 	{
-        //if($this->form_validation->run() == FALSE)
-		//{
-	   	//	$this->index();
-		//}
-		//else
-		//{
-            //
-			// Tabela de Doadores e Cartão
-			//
-			//$Doador['Nome'] 	        =    mb_strtoupper(trim($this->input->post('Nome')));
-			//$Doador['CPF'] 		        =    str_replace('-', '', str_replace('.', '', $this->input->post('CPF')));
-			//$Doador['Email'] 	        =    mb_strtolower(trim($this->input->post('Email')));
-            //$Doador['Telefone']         =    trim($this->input->post('Telefone'));
-			//$Doador['IdProjeto']        =    $this->input->post('Projeto');
-			//$Doador['Data']             =    date('Y-m-d H:i:s');           
-			
-			//
-			// Criar arquivo de Pagamento
-			//
-            //$Cartao['idProjeto']        =    $this->input->post('Projeto');
-			//$Cartao['Nome']             =    mb_strtoupper(trim($this->input->post('Nome')));
-			//$Cartao['CPF'] 	            =    str_replace('-', '', str_replace('.', '', $this->input->post('CPF')));
-			//$Cartao['Valor']      		=    num_to_db($this->input->post('Valor'));
-			//$Cartao['DataCadastro']     =    date('Y-m-d H:i:s');   
-			
-			//
-            // Chama a rotina de inclusão
-            //
-			//if($this->inscricao_model->check_person_donation($Doador['CPF']) == true)
-			//{
-			//	$this->inscricao_model->insert_doador($Doador);
-			//}
-
-			//
-			// Verifica se o cara escolheu boleto (== 1 é cartão)
-			//
-            //$this->inscricao_model->insert_pagamento($Cartao);
-			
-			//
-			// Cria uma variavel Body para mostrar os dados
-			//
-			//$this->session->set_flashdata('Body', array_merge($Doador, $Cartao));
-			
-			//
-			// Chama a confirmação
-			//			
-			//redirect(base_url() . 'ofertas/confirmacao');
-		//}
+        //
+        // Tabela de Voluntarios
+        //
+        $Data['Nome'] 	        =    mb_strtoupper(trim($this->input->post('Nome')));
+        $Data['CPF'] 		    =    str_replace('-', '', str_replace('.', '', $this->input->post('CPF')));
+        $Data['Email'] 	        =    mb_strtolower(trim($this->input->post('Email')));
+        $Data['Telefone']       =    trim($this->input->post('Telefone'));
+        $Data['Termos']         =    $this->input->post('Termos');
+        $Data['Data']           =    date('Y-m-d H:i:s');
+        
+        debug($Data);
+        
+        //
+        // Cria uma variavel Body para mostrar os dados
+        //
+        $this->session->set_flashdata('Body', $Data);
+        
+        //
+        // Chama a confirmação
+        //			
+        //redirect(base_url() . 'ofertas/confirmacao');
 	}
 	
 	//

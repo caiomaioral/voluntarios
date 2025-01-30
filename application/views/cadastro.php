@@ -51,7 +51,7 @@
 	<div class="col-md-12 mb-3">
 		
 		<div class="custom-control custom-switch">
-			<input type="checkbox" name="Termos[]" class="custom-control-input card-checkbox" id="customSwitch1" value="<?php echo set_value('Termos'); ?>">
+			<input type="checkbox" name="Termos" class="custom-control-input card-checkbox" id="customSwitch1" value="1">
 			<label class="custom-control-label" for="customSwitch1">
 				Eu concordo com esses <a href="#">Termos e Condições</a>.
 			</label>
