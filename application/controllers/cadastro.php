@@ -31,37 +31,49 @@ class Cadastro extends MY_Controller {
 		$this->usable('cadastro');
 	}
 
-    //
+	//
+	// Metodo que chama o post
+	//
+	public function processar()
+	{
+        //
+        // Tabela de Voluntarios
+        //
+        $Data['Nome'] 	        =    mb_strtoupper(trim($this->input->post('Nome')));
+        $Data['CPF'] 		    =    str_replace('-', '', str_replace('.', '', $this->input->post('CPF')));
+        $Data['Email'] 	        =    mb_strtolower(trim($this->input->post('Email')));
+        $Data['Telefone']       =    trim($this->input->post('Telefone'));
+        $Data['Termos']         =    $this->input->post('Termos');
+        
+        //
+        // Cria uma variavel Body para mostrar os dados
+        //
+        $this->session->set_flashdata('Body', $Data);
+        
+        //
+        // Chama a confirmação
+        //			
+        redirect(base_url() . 'cadastro/confirmacao');
+	}
+	
+	//
 	// Metodo que chama view index
 	//
-	public function example()
+	public function confirmacao()
 	{
-        $this->data['AddCss'] 		  	 =   load_css(array('example'));
-		$this->data['AddJavascript']  	 =   load_js(array(''));
-		
-		$this->usable('example');
-	}    
-
-	//
-	// Metodo que verifica se o cara já esta cadastrado
-	//
-    function verificar_doador($CPF)
-    {
-		$Data['CPF']  =  str_replace('-', '', str_replace('.', '', $CPF));
-        
-		$Result = $this->inscricao_model->check_donation($Data['CPF']);
-
-		header("Content-Type: application/json", true);
-
-		if($Result == false)
+		if($this->session->flashdata('Body') != '')
 		{
-			echo json_encode(array('Status' => 0));
+            $this->data['AddCss'] 		  	 =   load_css(array('site'));
+            $this->data['AddJavascript']  	 =   load_js(array('libraries', 'scripts'));
+			$this->data['Body'] 			 =   $this->session->flashdata('Body');
+			
+			$this->usable('confirmacao');
 		}
 		else
 		{
-			echo json_encode(array('Id' => $Result->Id, 'Nome' => $Result->Nome, 'Email' => $Result->Email, 'Telefone' => $Result->Telefone)); 
+			redirect(base_url() . 'ofertas');	
 		}
-    }
+	}
 
 	//
 	// Metodo que chama o post
@@ -78,169 +90,16 @@ class Cadastro extends MY_Controller {
         $Data['Termos']         =    $this->input->post('Termos');
         $Data['Data']           =    date('Y-m-d H:i:s');
         
-        debug($Data);
+        //
+        // Salva os dados no banco de dados
+        //
         
-        //
-        // Cria uma variavel Body para mostrar os dados
-        //
-        $this->session->set_flashdata('Body', $Data);
         
         //
         // Chama a confirmação
         //			
-        //redirect(base_url() . 'ofertas/confirmacao');
+        redirect(base_url() . 'cadastro/sucesso');
 	}
-	
-	//
-	// Metodo que chama view index
-	//
-	public function confirmacao()
-	{
-		if($this->session->flashdata('Body') != '')
-		{
-            $this->data['AddCss'] 		  	 =   load_css(array('site', 'example'));
-            $this->data['AddJavascript']  	 =   load_js(array('libraries', 'scripts'));
-            $this->data['AddProjeto']        =   $this->ofertas_model->get_projetos_dropdown();
-			$this->data['Body'] 			 =   $this->session->flashdata('Body');
-			
-			$this->usable('confirmacao');
-		}
-		else
-		{
-			redirect(base_url() . 'ofertas');	
-		}
-	}
-
-	//
-    // End-Point da Granito
-    //
-    public function endpoint()
-    {
-        // Elo Credito -  6505210000000002 - 12/49 111
-        // Hipercard credito -  6062820000000003 - 12/49 111
-        // Mastercard credito -  5204970000005250 -  12/49 111
-
-        //
-        // Dados do Formulário
-        //        
-        $nonce              =   $this->input->post('nonce');
-        $order              =   $this->input->post('order');
-        $amount             =   str_replace('.', '', str_replace(',', '', $this->input->post('amount')));
-        $customer_name      =   $this->input->post('customer_name');
-		$customer_identity  =   $this->input->post('customer_identity');
-		$customer_email  	=   $this->input->post('customer_email');
-		$church_identity  	=   $this->input->post('church_identity');
-
-        $data_string = 
-        '{
-            "payment": {
-              "termUrl": "https://boladeneve.com/dizimos/ofertas/sucesso",
-              "paymentMethod": {
-                "paymentMethodNonce": "'.$nonce.'"
-              },
-              "amount": '.$amount.',
-              "installments": 1,
-              "settle": true,
-              "authenticate": false
-            },
-            "merchantOrderId": "DIZ|'.$order.'|'.$church_identity.'"
-        }';
-
-        $url = 'https://gateway.granitopagamentos.com.br/Payments/Authorize/Payment/Process';                                                             
-        
-        //
-        //  Initiate curl
-        //
-        $ch = curl_init();
-        
-        //
-        // Set the timeout
-        //
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        
-        //
-        // Disable SSL verification
-        //
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-
-        //
-        // Gera o token para o Bearer
-        //
-        $token  =  jwt_generator();        
-        
-        //
-        // Set the header
-        //
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
-                                                       'Content-Type: application/json',                                                                                
-                                                       'Cache-Control: no-cache',
-                                                       'Authorization: Bearer ' . $token
-                                                  ));         
-        
-        //
-        // Set the method
-        //
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');                                                                     
-        
-        //
-        // Set the Json
-        //
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);        
-        
-        //
-        // Will return the response, if false it print the response
-        //
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        
-        //
-        // Set the url
-        //
-        curl_setopt($ch, CURLOPT_URL, $url);
-        
-        //
-        // Execute
-        //
-        $result = curl_exec($ch);
-        
-        //
-        // Closing
-        //
-        curl_close($ch);
-        
-        //
-        // Retorno final da venda
-        //   
-		$GranitoReturn = json_decode($result);
-        
-        //
-        // Dados do retorno para jogar nas varíaveis
-        //
-        $Data['pedido']    	   	               =    floatval($order);
-        $Data['order_number']    	   	       =    inclui_zero_esq($order);
-        $Data['valor']    	                   =    num_cielo_to_db($amount);
-        $Data['customer_name']                 =    $customer_name;
-		$Data['customer_identity']    	       =    $customer_identity; 
-		$Data['customer_email']    	       	   =    $customer_email; 
-
-        //
-        // Armazenamento do resultado do serviço da Granito
-        //        
-        $Data['payment_method_type']           =    1;
-        $Data['payment_maskedcreditcard']      =    $GranitoReturn->payment->paymentMethod->card->number;
-        $Data['payment_status']    	           =    paymentStatus($GranitoReturn->payment->status, 'Codigo');
-        $Data['tid']                           =    $GranitoReturn->payment->paymentId;
-        $Data['status_date'] 	               =    date('Y-m-d H:i:s');
-		
-        //
-        // Persistência no banco de dados
-        //
-        $this->inscricao_model->update_payment($Data);
-
-        //
-        // Envia uma notificação de e-mail
-        //        
-        $this->notificacao($Data);
-    }
 
     //
     // Metodo que retorna os dados para a tabela de status

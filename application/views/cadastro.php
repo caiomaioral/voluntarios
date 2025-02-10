@@ -5,17 +5,13 @@
 
 	$attributes = array('id' => 'FormX', 'name' => 'FormX', 'accept-charset' => 'utf-8');
 
-	echo form_open(base_url() . 'cadastro/salvar', $attributes); 
+	echo form_open(base_url() . 'cadastro/processar', $attributes); 
 
 ?>
 
 <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 
 <div class="overlay"></div>
-
-<!-- Alert message if necessary 
-<div class="alert alert-warning" role="alert"></div>
--->
 
 <br>
 
@@ -49,24 +45,28 @@
 
 <div class="row">
 	<div class="col-md-12 mb-3">
-		
+
 		<div class="custom-control custom-switch">
 			<input type="checkbox" name="Termos" class="custom-control-input card-checkbox" id="customSwitch1" value="1">
 			<label class="custom-control-label" for="customSwitch1">
-				Eu concordo com esses <a href="#">Termos e Condições</a>.
+				Eu concordo de receber por e-mail os termos e condições para assinatura.
 			</label>
+		</div><br>
+		
+		<div class="alert alert-warning" role="alert">
+			Estou ciente de que os Termos e Condições serão enviados para meu e-mail para assinatura digital. Caso eu concorde com os termos, comprometo-me a assiná-los digitalmente. Se optar por não assinar, estarei considerando que não aceitei os Termos e Condições
 		</div>		
 	</div>
 </div>
 
 <br>
 
-<!--<div class="g-recaptcha" data-sitekey="6LcNVwsqAAAAANke5h78JPoWG5UYmfORb4A3Y4qH" data-action="Doar" data-callback="callback"></div>-->
+<div class="g-recaptcha" data-sitekey="6LcNVwsqAAAAANke5h78JPoWG5UYmfORb4A3Y4qH" data-action="Doar" data-callback="callback"></div>
 
 <br>
 
 <div class="form-group text-center">
-	<button id="enviar_dados" type="submit" class="btn btn-dark">Continuar o Cadastro</button>
+	<button id="enviar_dados" type="submit" class="btn btn-dark" disabled>Continuar o Cadastro</button>
 </div>
 
 <?php echo form_close(); ?>

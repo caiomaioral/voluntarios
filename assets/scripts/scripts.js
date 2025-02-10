@@ -1,4 +1,10 @@
-$(function(){
+function callback() 
+{
+	const submitButton = document.getElementById('enviar_dados');
+	submitButton.removeAttribute('disabled');
+}
+
+$(document).ready(function(){
 	
 	$('#CPF').mask('999.999.999-99', {reverse: true});
 	$('#Telefone').mask('(99) 9999-99999').on('change', function (event) 
@@ -83,6 +89,8 @@ $(function(){
 			{
 				required: '<strong>NOME</strong> é um campo obrigatório.',
 				lettersonly: 'Favor inserir somente caracteres.',
+				minlength: 'Favor incluir no mínimo 5 caracteres.',
+				maxlength: 'Favor incluir no máximo 40 caracteres.',
 			},
 			'CPF': 
 			{
