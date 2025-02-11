@@ -54,7 +54,7 @@
 		</div><br>
 		
 		<div class="alert alert-warning" role="alert">
-			Estou ciente de que os Termos e Condições serão enviados para meu e-mail para assinatura digital. Caso eu concorde com os termos, comprometo-me a assiná-los digitalmente. Se optar por não assinar, estarei considerando que não aceitei os Termos e Condições
+			Estou ciente de que os Termos e Condições serão enviados para meu e-mail para assinatura digital. Caso eu concorde com os termos, comprometo-me a assiná-los digitalmente. Se optar por não assinar, estarei considerando que não aceitei os Termos e Condições.
 		</div>		
 	</div>
 </div>

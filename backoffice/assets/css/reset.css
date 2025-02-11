@@ -1,0 +1,40 @@
+﻿/* RESET + HTML5 Reset */
+/* ----------------------------------------- */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+textarea, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q,
+samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form,
+label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time,
+mark, audio, video, a {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {display:block;}
+nav ul, ul, ol {list-style:none;}
+
+blockquote, q {quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:'';content:none;}
+
+body {line-height:1;}
+
+abbr[title], dfn[title] {border-bottom:1px dotted #000; cursor:help;}
+
+table { border-collapse:collapse; border-spacing:0;}
+
+input, select { vertical-align:middle;}
+input::-moz-focus-inner {border: 0; padding: 0;}
+
+:focus {outline: 0;}
+
+.clear{ clear:both; display: block; height: 0px; overflow:hidden;}
+.clearfix:after{ visibility: hidden; display: block; font-size: 0; content: " ";  clear: both; height: 0px; }
+* html .clearfix {height: 1%;}
+
+.left{ float: left;}
+.right{ float: right;}
+.hide{ display: none;}

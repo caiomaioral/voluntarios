@@ -1,0 +1,61 @@
+﻿@charset "utf-8";
+/**********************************************************/
+/******* STYLES referente ao formulário de cadastro *******/
+/**********************************************************/
+
+#Nome
+{
+    width: 420px;
+}
+#CPF
+{
+    width: 120px;
+}
+#Genero
+{
+    width: 170px;
+}
+#EstadoCivil
+{
+    width: 170px;
+}
+#Nascimento
+{
+    width: 100px;
+}
+#Residencial
+{
+    width: 130px;
+}
+#Comercial
+{
+    width: 130px;
+}
+#Celular
+{
+    width: 130px;
+}
+#CEP
+{
+    width: 80px;
+}
+#Endereco
+{
+    width: 360px;
+}
+#Bairro
+{
+    width: 190px;
+}
+#Cidade
+{
+    width: 280px;
+}
+#Pagamento
+{
+	width: 160px;	
+}
+#Vencimento
+{
+	width: 120px;	
+}

@@ -219,20 +219,23 @@ class Cadastro extends MY_Controller {
 		} 
 	}
 
-    //
-    //  Metodo que verifica se CPF é valido
-    //
+    /**
+     * Metodo que verifica se CPF é duplicado
+     *
+     * @param string $CPF
+     * @return bool
+     */
     public function duplicidade($CPF)
     { 
-        $Data['CPF']   =   str_replace('-', '', str_replace('.', '', $CPF));
+        $cleanedCPF = str_replace(['-', '.'], '', $CPF);
 
-        if($this->inscricao_model->Get_Duplicidades($Data) == true)
-        { 
-            echo 'false'; 
+        if ($this->inscricao_model->Get_Duplicidades(['CPF' => $cleanedCPF])) 
+        {
+            return false; 
         } 
-        else
-        { 
-            echo 'true';
+        else 
+        {
+            return true;
         } 
-    }   
+    }  
 }

@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+.td_Resultado th 
+{
+	border: 1px #BCBCBC solid;	
+}
+.tr_Titulo th 
+{
+	background-color: #E5E5E5;	
+	padding-top: 10px;
+	height: 15px;
+	padding-bottom: 5px;
+}
+.tr_Linha td 
+{
+	border: 1px #BCBCBC solid;	
+	background-color: #D8FFCE;	
+	padding-top: 5px;
+	height: 20px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
+#Modulo
+{
+	width: 130px;	
+}
+.fancyWindow
+{
+	display: none;	
+}
+#form
+{
+	width: 300px;	
+}
+.buttonsForm
+{
+	width: 100%;
+	height: 50px;
+}
+.file-wrapper 
+{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+}
+.file-wrapper input 
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    filter: alpha(opacity=1);
+    opacity: 0.01;
+    -moz-opacity: 0.01;
+    cursor: pointer;
+}
+.file-wrapper .button 
+{
+    color: #fff;
+    background: #999;
+    padding: 14px 18px;
+    margin-right: 5px; 
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+.file-holder
+{
+    color: #000;
+}
+.ui-datepicker table 
+{
+	width: 100%;
+	font-size: .8em;
+	border-collapse: collapse;
+	margin: 0 0 .4em;
+}
+.opa table
+{
+	border: 1px solid #000;
+	border-collapse: collapse;
+	color: #666666;
+	min-width: 500px;
+	width: 100%;
+}
+.opa tr
+{
+	border: 1px solid #000;
+	line-height: 25px;
+}
+.opa th
+{
+	background-color: #9b9993;
+	color: #000;
+	font-size: 13px;
+	text-align: left;
+}
+.opa th, td
+{
+	padding-left: 5px;
+}
+.opa tr:hover
+{
+	background-color: #fff;
+}
+.opa .home a
+{
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.money
+{
+    font-size: 35px;
+    padding: 10px;
+    font-weight: bold;
+}

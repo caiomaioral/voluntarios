@@ -1,0 +1,341 @@
+#content {
+    background-color: #fff;	
+}
+td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+input {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    border-top: 1px #999999 solid;
+    border-bottom: 1px #999999 solid;
+    border-left: 1px #999999 solid;
+    border-right: 1px #999999 solid;
+    height: 23px;
+    padding: 5px;
+}
+select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    border-top: 1px #999999 solid;
+    border-bottom: 1px #999999 solid;
+    border-left: 1px #999999 solid;
+    border-right: 1px #999999 solid;
+    height: 35px;
+    padding: 5px;
+}	
+h3 {
+    font-family: Helvetica, Tahoma, Arial, sans-serif;
+    font-size: 14px;
+}
+p {
+    font-family: Helvetica, Tahoma, Arial, sans-serif;
+    font-size: 12px;
+}
+hr {
+    border: 1px #333333 thin; 
+}
+#Line {
+    width: 100%;
+    border: 0;
+    border-top: 1px #000 dotted;
+}
+.SubNone {
+    display: none;
+}
+.SubSome {
+
+}
+#aguarde-portal {
+    display: block;
+    background: url(../images/form/ajax-loader.gif) no-repeat center;
+    width: 900px;
+    height: 300px;
+}
+#aguarde-portal-sub {
+    display: block;
+    background: url(../images/form/ajax-loader.gif) no-repeat center;
+    width: 500px;
+    height: 200px;
+}
+#Valor {
+    padding: 0;
+}
+.Button {
+    border: 1px #666666 dashed;
+    font-family: Helvetica, Tahoma, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    width: 250px;
+    height: 45px;
+}
+.ButtonAdd {
+    border: 1px #666666 dashed;
+    font-family: Helvetica, Tahoma, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #FFFFFF;
+    width: 150px;
+    height: 35px;
+}	
+.containerSite {
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0px;
+    text-align: left;
+}
+#headerSite{
+    background-color: #f5f5f5;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+#conteudoSite {
+    width: 700px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0;
+}
+#ResultAjax {
+    width: 667px;
+    height: auto;
+    margin: 0 auto;
+}
+#BodyHome {
+    margin: 20px 0 30px 0;
+    background-color: #f5f5f5;
+    width: 667px;
+    height: 100%;
+    text-align: left;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;	
+}
+#Spacer {
+    width: auto; 
+    height: 18px; 
+    clear: both; 
+    padding-bottom: 2px;
+    border: 0px #000000 solid;
+}
+.validation {
+    color: #900;
+    font-size: 12px;
+}
+.error {
+    color: #900;
+    font-size: 12px;
+    padding-left: 5px;
+}    
+#caixa_esquerda {
+    float: left;
+    width: 190px;
+    font-family: "Bitter";
+    font-size: 11px;
+}
+#caixa_centro {
+    float: left;
+    width: 230px;
+    font-family: "Bitter";
+    font-size: 11px;	
+}
+#caixa_direita {
+    float: left;
+    width: 210px;
+    font-family: "Bitter";	
+    font-size: 11px;
+}
+#caixa_esquerda p {
+    padding-left: 10px;
+}
+#caixa_centro p {
+    padding-left: 10px;
+}
+#caixa_direita p {
+    padding-left: 10px;
+}
+#BodyHomeIntro {
+    margin: 20px 0 30px 0;
+    background-color: #f5f5f5;
+    width: 648px;
+    height: auto; 
+    padding: 60px 0 30px 20px;
+    text-align: left;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    display: table;		
+}
+#BodyHomeSucesso {
+    margin: 20px 0 30px 0;
+    background-color: #f5f5f5;
+    width: 667px;
+    height: 350px; 
+    padding: 60px 0 0 0;
+    text-align: center;
+    -moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;		
+}
+#links {
+    padding: 30px 0 50px 0;
+    width: 648px;
+    margin: 0 auto;
+    text-align: left;
+    display: table;
+}
+#links img {
+    float: right;
+    margin-right: 20px;
+}
+#ResultValidation {
+    padding-left: 45px;
+    padding-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+.button-consult {
+    border: 0;
+}
+#str_Nome {
+    width: 380px;
+}
+#str_CPF {
+    width: 100px;
+}
+#str_Email {
+    width: 280px;
+}
+#str_Telefone {
+    width: 110px;
+}
+#str_Celular {
+    width: 110px;
+}
+#str_Cidade {
+    width: 280px;
+}
+#id_UF {
+    width: 240px;
+}
+#sel_Participante {
+    width: 200px;
+}
+#sel_Adicionais {
+    width: 240px;
+}
+.nome {
+    width: 380px;
+}
+.cpf_adicional {
+    width: 100px;
+}
+#payment_type {
+    width: 200px;
+}
+.payment-methods {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.payment-methods:after {
+  content: "";
+  clear: both;
+}
+
+.payment-method {
+  border: 0px solid #ccc;
+  box-sizing: border-box;
+  float: left;
+  height: 50px;
+  position: relative;
+  width: 60px;
+}
+
+.payment-method label {
+  background: #fff no-repeat center center;
+  bottom: 1px;
+  cursor: pointer;
+  display: block;
+  font-size: 0;
+  left: 1px;
+  position: absolute;
+  right: 1px;
+  text-indent: 100%;
+  top: 1px;
+  white-space: nowrap;
+}
+
+.payment-method + .payment-method {
+  margin-left: 10px;
+}
+
+.payment-methods input:focus + label {
+  outline: 2px dotted #21b4d0;
+}
+
+.payment-methods input:checked + label {
+  outline: 4px solid #000;
+}
+
+.payment-methods input:checked + label:after {
+  background: url(../images/form/checked_old.png);
+  bottom: -10px;
+  content: "";
+  display: inline-block;
+  height: 20px;
+  position: absolute;
+  right: -10px;
+}
+
+@-moz-document url-prefix() {
+  .payment-methods input:checked + label:after {
+    bottom: 0;
+    right: 0;
+  }
+}
+
+#Nome {
+    width: 300px;
+}
+#Numero {
+    width: 300px;
+}
+#Mes {
+    width: 70px;
+}
+#Ano {
+    width: 80px;
+}
+#CVV {
+    width: 100px;
+}
+.acao
+{
+    padding-left: 40px;	
+}
+.td_Resultado th {
+	border: 1px #BCBCBC solid;	
+}
+.tr_Titulo th {
+	background-color: #E5E5E5;	
+	padding-top: 10px;
+	height: 15px;
+	padding-bottom: 5px;
+}
+.tr_Linha td {
+	border: 1px #BCBCBC solid;	
+	background-color: #D8FFCE;	
+	padding-top: 5px;
+	height: 20px;
+	padding-bottom: 10px;
+	padding-left: 15px;
+}
