@@ -17,26 +17,28 @@ class Inscricao_model extends CI_Model {
 		return $this->db->insert($this->participantes, $Data);
 	}
 
-	//
-	// Função para pegar os espertos
-	//
-	public function Get_Duplicidades($CPF)
-	{
-        $query = $this->db
-					  ->where('CPF', $CPF)
-                      ->where('StatusPagamento != 0')
-                      ->where('DataCadastro', date('Y-m-d'))
-                      ->get($this->pagamentos);        
+    //
+    // Verifica se existem duplicidades
+    //
+    public function Get_Duplicidades($Data)
+    {
+        $this->db->cache_off();
 
-		if($query->num_rows() == 0)
-		{
-            echo 'true';
+        $query = $this->db
+                      ->where('CPF', $Data['CPF'])
+                      ->get($this->participantes);
+
+        if($query->num_rows() > 0)
+        {
+            // Tem duplicidade e não pode continuar
+            return true;
         }
-		else
-		{
-            echo 'false';
+        else
+        {
+            // Não existe duplicidade e pode continuar
+            return false;
         }
-    }
+    }    
 }
 
 ?>

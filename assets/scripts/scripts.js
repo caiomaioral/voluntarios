@@ -7,7 +7,7 @@ function callback()
 $(document).ready(function(){
 	
 	$('#CPF').mask('999.999.999-99', {reverse: true});
-	$('#Telefone').mask('(99) 9999-99999').on('change', function (event) 
+	$('#Telefone').mask('(99) 99999-9999').on('change', function (event) 
 	{
 		var target, phone, element;
 		target = (event.currentTarget) ? event.currentTarget : event.srcElement;
@@ -67,6 +67,7 @@ $(document).ready(function(){
 			{
 				required: true,
 				valid_cpf: true,
+				duplicidade: true
 			},
 			'Email': 
 			{
@@ -141,5 +142,31 @@ $(document).ready(function(){
 		return this.optional(element) || (valida_cpf(value) == true);
 		
 	}, '<strong>CPF</strong> inválido, insira um correto.');
+
+	//
+    // Verifica se já estava cadastrado
+    //
+    $.validator.addMethod('duplicidade', function(value, element)
+    {
+        var response;
+        var value = value.replace('.', '').replace('.', '').replace('-', '');
+        
+        $.ajax({
+            type: 'GET',
+            async: false,
+            cache: false,
+            url: 'http://localhost:81/voluntarios/cadastro/duplicidade/' + value,
+            success: function(msg)
+            {
+				//
+				// If problems exists, set response to true
+				//
+				response = (msg == 'true')? true : false;
+            }            
+		});
+        
+        return response;
+        
+    }, '<strong>CPF</strong> já esta cadastrado.'); 	
 
 });

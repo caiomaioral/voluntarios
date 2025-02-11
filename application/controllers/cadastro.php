@@ -71,7 +71,7 @@ class Cadastro extends MY_Controller {
 		}
 		else
 		{
-			redirect(base_url() . 'ofertas');	
+			redirect(base_url() . 'cadastro');	
 		}
 	}
 
@@ -219,37 +219,20 @@ class Cadastro extends MY_Controller {
 		} 
 	}
 
-	//
-	// Metodo que verifica a doação
-	//	
-	function maximumCheck($num)
-	{
-		if(num_to_db($num) < 100)
-		{
-			$this->form_validation->set_message('maximumCheck', 'O <strong>VALOR</strong> deve ser no valor mínimo de R$ 100,00.');
-			
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
-    
-	//
-	// Metodo que valida CPF
-	//
-	public function validarFraudes($CPF)
-	{ 
-        if($this->inscricao_model->Get_Fraudes(str_replace('-', '', str_replace('.', '', $CPF)), mb_strtolower(trim($this->input->post('Email')))) == 1)
-		{ 
-			$this->form_validation->set_message('validarFraudes', 'Você já tentou mais de uma vez com um <strong>CARTÃO NEGADO</strong>, por medida de segurança você deve efetuar sua doação por outro meio.');
+    //
+    //  Metodo que verifica se CPF é valido
+    //
+    public function duplicidade($CPF)
+    { 
+        $Data['CPF']   =   str_replace('-', '', str_replace('.', '', $CPF));
 
-			return false; 
-		} 
-		else
-		{ 
-			return true;
-		} 
-	}    
+        if($this->inscricao_model->Get_Duplicidades($Data) == true)
+        { 
+            echo 'false'; 
+        } 
+        else
+        { 
+            echo 'true';
+        } 
+    }   
 }
