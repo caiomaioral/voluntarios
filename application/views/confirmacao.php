@@ -64,7 +64,7 @@
 <br />
 
 <div class="form-group text-center">
-    <button id="enviar_dados" type="submit" class="btn btn-dark" disabled>Finalizar o Cadastro</button>
+    <button id="enviar_dados" type="submit" class="btn btn-dark">Finalizar o Cadastro</button>
 </div>       
 
 <?php echo form_close(); ?>

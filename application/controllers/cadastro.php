@@ -93,7 +93,7 @@ class Cadastro extends MY_Controller {
         //
         // Salva os dados no banco de dados
         //
-        
+        $this->inscricao_model->insert_cadastro($Data);
         
         //
         // Chama a confirmação
@@ -227,38 +227,6 @@ class Cadastro extends MY_Controller {
 		if(num_to_db($num) < 100)
 		{
 			$this->form_validation->set_message('maximumCheck', 'O <strong>VALOR</strong> deve ser no valor mínimo de R$ 100,00.');
-			
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
-
-    //
-	// Metodo que valida CPF
-	//
-	public function validarRecorrenciaDia($CPF)
-	{ 
-        if($this->inscricao_model->Get_Duplicidades(str_replace('-', '', str_replace('.', '', $CPF))) == 1)
-		{ 
-			return false; 
-		} 
-		else
-		{ 
-			return true;
-		} 
-	}
-    
-	//
-	// Metodo que verifica a doação
-	//	
-	function checkCaptcha($Captcha)
-	{
-        if($Captcha != $this->session->userdata('captcha'))
-		{
-			$this->form_validation->set_message('checkCaptcha', 'O <strong>CAPTCHA</strong> não corresponde a imagem, digite novamente.');
 			
 			return false;
 		}

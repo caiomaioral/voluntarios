@@ -2,9 +2,7 @@
 
 class Inscricao_model extends CI_Model {
 	
-    private $doadores      =   'Doadores';
-    private $pagamentos    =   'Pagamentos';
-    private $projetos      =   'Projetos';
+    private $participantes    =   'enr_Participantes';
 	
 	public function __construct()
 	{
@@ -12,102 +10,13 @@ class Inscricao_model extends CI_Model {
     } 
 
 	//
-	// Inclui o doador
+	// Inclui o Participante
 	//
-	public function insert_doador($Doador)
+	public function insert_cadastro($Data)
 	{
-		return $this->db->insert($this->doadores, $Doador);
+		return $this->db->insert($this->participantes, $Data);
 	}
 
-	//
-	// Inclui o Pagamento
-	//
-	public function insert_pagamento($Pagamento)
-	{
-		return $this->db->insert($this->pagamentos, $Pagamento);
-	}    
-    
-    //
-    // Verifica se existem duplicidades
-    //
-    public function check_donation($CPF)
-    {
-        $query = $this->db
-                      ->select('Id, Nome, Email, Telefone')
-					  ->where('CPF', $CPF)
-                      ->get($this->doadores);
-
-        if($query->num_rows() > 0)
-        {
-            // Tem duplicidade e não pode continuar
-            return $query->row();
-        }
-        else
-        {
-            // Não existe duplicidade e pode continuar
-            return false;
-        }
-    }
-
-    //
-    // Retorna o ID do doador
-    //
-    public function get_id_doador($CPF)
-    {
-        $query = $this->db
-					  ->where('CPF', $CPF)
-                      ->get($this->pagamentos);
-
-        if($query->num_rows() > 0)
-        {
-            // Tem duplicidade e não pode continuar
-            return $query->row()->Pedido;
-        }
-        else
-        {
-            // Não existe duplicidade e pode continuar
-            return false;
-        }
-    }    
-
-	//
-    // Verifica se existem duplicidades
-    //
-    public function check_person_donation($CPF)
-    {
-        $query = $this->db
-					  ->where('CPF', $CPF)
-                      ->get($this->doadores);
-
-        if($query->num_rows() > 0)
-        {
-            // Tem duplicidade e não inclui
-            return false;
-        }
-        else
-        {
-            // Não existe duplicidade e pode continuar
-            return true;
-        }
-    }	
-
-	//
-	// Busca o Auto Increment
-	//
-	public function Get_Pedido()
-	{
-        $query = $this->db->query('SHOW TABLE STATUS LIKE "' . $this->cartoes . '"');
-        
-		if($query->num_rows() > 0)
-		{
-            return $query->row()->Auto_increment;
-        }
-		else
-		{
-            return 0;
-        }
-    }
-    
 	//
 	// Função para pegar os espertos
 	//
@@ -128,26 +37,6 @@ class Inscricao_model extends CI_Model {
             echo 'false';
         }
     }
-
-	//
-	// Função para pegar os espertos
-	//
-	public function Get_Fraudes($CPF, $Email)
-	{
-        $query = $this->db->query('SELECT customer_identity FROM dizimos.tb_ofertas WHERE (customer_identity = "' . $CPF . '" OR customer_email = "' . $Email . '") AND (payment_status != 2 AND payment_status != 0)');
-        
-		if($query->num_rows() >= 2)
-		{
-            return 1;
-        }
-		else
-		{
-            return 0;
-        }
-    }    
-    
-
-    
 }
 
 ?>
