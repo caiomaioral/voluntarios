@@ -1,131 +1,77 @@
 <?php
 
+echo $AddJavascript;
 echo $AddCss;
-echo $AddJavascripts;
 
-$attributes = array('id' => 'FormY', 'name' => 'FormY');
+$attributes = array('id' => 'FormS', 'name' => 'FormS');
 
-echo form_open(base_url(), $attributes); 
+echo form_open(base_url() . 'financeiro', $attributes); 
 
 ?>
 
-<table border="0" align="center" width="100%" cellpadding="0" cellspacing="0">
-<tr>
-     <td>
-        <div class="td_Titulo">
-	        <h3 class="Play">Pagamentos para o Evento - <?php echo trim($AddData->titulo); ?></h3>
-    	</div>    
-     </td>
-</tr>
-<tr>
-    <td style="padding-top: 2px; padding-bottom: 10px">
+<script>
 
-        <div class="td_Corpo">
-            <div class="breadCrumbHolder module">
-                <div id="breadCrumb3" class="breadCrumb module">
-                    <ul>
-                        <li>
-                            <a href="<?php echo base_url(); ?>home">Home</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>financeiro">Financeiro</a>
-                        </li>
-                        <li>
-                            Pesquisar Pagamentos
-                        </li>
-                    </ul>
-                </div>
-            </div>    
-		</div>
-            
-    </td>
-</tr>
-<tr>
-     <td style="padding-top: 2px">
-		
-        <table border="0" align="center" width="100%" cellpadding="0" cellspacing="0">
-        <tr>
-            <td valign="top" style="margin:0;padding:0">
-                <div class="td_Corpo">
+    function Mudar()
+    {
+        $('#FormS').submit();
+    }
 
-                    <table width="800" border="0" cellspacing="2" cellpadding="6">
-                    <tr>
-                        <td>Status de Pagamento:</td>
-                    	<td>
-							<?php
-                            
-                                $js = 'id="Status"';
-                                
-                                echo form_dropdown('Status', $AddStatus, set_value('Status', 'SELECIONE O STATUS PARA BUSCAR'), $js);                            
-                            
-                            ?>                          
-                        </td>
-                    	<td>Numero Pedido:</td>
-                        <td width="130"><input id="NN" name="NN" type="text" /></td>
-                        <td width="30"></td>
-                        <td><input type="button" value="Pesquisar" class="pesquisar" /></td>
-                    </tr>
-                    </table>
+</script>
 
-                </div>
-            </td>
-        </tr>
-        </table>
-	</td>
-</tr>
-<tr>
-    <td height="10"></td>
-</tr>
-<tr>
-    <td>
-		<div id="container" style="height: auto">
-            <div class="demo_jui" style="height: auto">
-            
-            	<table id="examples" width="100%" cellpadding="0" cellspacing="0" border="0" class="display">
-                <thead>
-                <tr>
-                    <th width="90" height="25">Ações</th>
-                    <th width="380" height="25">Inscrito</th>
-                    <th width="100" height="25">CPF</th>
-                    <th width="220" height="25">E-mail</th>
-                    <th width="120" height="25">Pedido</th>
-                    <th width="120" height="25">Valor</th>
-                    <th width="120" height="25">Parcelas</th>
-                    <th width="150" height="25">Pagamento</th>
-                    <th width="150" height="25">Data Pagamento</th>
-                    <th width="320" height="25">Situação</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="gradeA">
-                    
-                </tr>
-                </tbody>
-            	</table>
-                
-			</div>
-		</div>
+<div class="jumbotron">
+    <div class="col-sm-12">
 
-        <!-- CARREGANDO -->
-        <div id="carregando"></div>
+        <a class="btn btn-secondary mb-3" href="<?php echo base_url(); ?>financeiro/lancamento" role="button">Incluir Lançamentos</a>
 
-        <!-- PALCO -->
-        <div id="palco"></div>
+        <select id="Natureza" name="Natureza" onchange="Mudar()" class="form-control mb-2">
+        <option value="" <?php if($Natureza == '') echo 'selected' ?>>Selecione a Natureza de Operação</option>
+        <option value="C" <?php if($Natureza == 'C') echo 'selected' ?>>CRÉDITOS</option>
+        <option value="D" <?php if($Natureza == 'D') echo 'selected' ?>>DÉBITOS</option>
+        </select>        
+        
+        <select id="Periodo" name="Periodo" onchange="Mudar()" class="form-control mb-2">
+        <option value="0" <?php if($Periodo == 1) echo 'selected' ?>>Selecione o Período</option>
+        <option value="1" <?php if($Periodo == 1) echo 'selected' ?>>1° Trimestre</option>
+        <option value="2" <?php if($Periodo == 2) echo 'selected' ?>>2° Trimestre</option>
+        <option value="3" <?php if($Periodo == 3) echo 'selected' ?>>3° Trimestre</option>
+        <option value="4" <?php if($Periodo == 4) echo 'selected' ?>>4° Trimestre</option>
+        </select>
 
-	</td>
-</tr>
-</table>
+        <select id="Pendentes" name="Pendentes" onchange="Mudar()" class="form-control mb-2">
+        <option value="" <?php if($Pendentes == '') echo 'selected' ?>>Todos</option>
+        <option value="1" <?php if($Pendentes == 1) echo 'selected' ?>>Pagos</option>
+        <option value="2" <?php if($Pendentes == 2) echo 'selected' ?>>Pendentes</option>
+        </select>        
+        
+        <?php echo $this->pagamento_model->Widget_General_Payment(date('Y')); ?>
+        
+    </div>
+</div>        
 
-<input id="id_evento" name="id_evento" type="hidden" value="<?php echo $AddData->id_evento_link; ?>" />
-<input id="Perfil" name="Perfil" type="hidden" value="<?php echo $this->session->userdata('intTipo'); ?>" />
-<input id="idUsuario" name="idUsuario" type="hidden" value="<?php echo $this->session->userdata('idUsuario'); ?>" />
+<!-- Modal -->
+<div id="confirm-delete" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Exclusão de Lançamento</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja apagar o lançamento?</p>
+                <p><strong>Atenção, esta ação é irreversível!</strong></p>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button id="DeleteForever" type="button" class="btn btn-primary">Excluir</button>
+
+                <input id="IdPagamento" name="IdPagamento" type="hidden" value="">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php echo form_close(); ?>
-
-<!-- delete confirmation dialog box -->
-<div id="delConfDialog" title="Confirma&ccedil;&atilde;o de Exclus&atilde;o">
-    <br />
-    <p>Deseja apagar o inscrito?</p>
-    <br />
-    <p><strong>Atenção, esta ação é irreversível!</strong></p>
-</div>

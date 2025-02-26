@@ -1,5 +1,13 @@
 @charset "utf-8";
 
+body {
+    border-top: solid 10px #000;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
 .bd-placeholder-img {
 	font-size: 1.125rem;
 	text-anchor: middle;

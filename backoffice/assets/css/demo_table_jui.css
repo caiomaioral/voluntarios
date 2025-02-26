@@ -135,16 +135,19 @@ table.display thead th div.DataTables_sort_wrapper span {
 	width: 50%;
 	float: right;
 	text-align: right;
+	font-size: 12px;
 }
 
 .dataTables_info {
 	width: 50%;
 	float: left;
+	font-size: 12px;
 }
 
 .dataTables_paginate {
 	float: right;
 	text-align: right;
+	font-size: 12px;
 }
 
 /* Pagination nested */

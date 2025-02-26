@@ -1,7 +1,7 @@
 <?php
 
 $lang['upload_userfile_not_set'] = "Não foi encontrada nenhuma variável post identificada como userfile.";
-$lang['upload_file_exceeds_limit'] = "O arquivo enviado excede o tamanho máximo permitido no seu arquivo de configuração PHP.";
+$lang['upload_file_exceeds_limit'] = "O arquivo enviado excede o tamanho máximo permitido.";
 $lang['upload_file_exceeds_form_limit'] = "O arquivo enviado excede o tamanho máximo permitido pelo formulário.";
 $lang['upload_file_partial'] = "O arquivo foi parcialmente transferido.";
 $lang['upload_no_temp_directory'] = "A pasta temporária não foi encontrada.";

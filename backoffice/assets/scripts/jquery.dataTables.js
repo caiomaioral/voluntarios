@@ -9229,7 +9229,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Mostrando _START_ até _END_ num total de _TOTAL_ registros",
+			"sInfo": "Mostrando _START_ até _END_ no total de _TOTAL_ registro(s).",
 		
 		
 			/**
@@ -9248,7 +9248,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Mostrando 0 registros",
+			"sInfoEmpty": "Mostrando 0 registros.",
 		
 		
 			/**
@@ -9268,7 +9268,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(Selecionados de _MAX_ registros)",
+			"sInfoFiltered": "",
 		
 		
 			/**
@@ -9310,7 +9310,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoThousands": ",",
+			"sInfoThousands": ".",
 		
 		
 			/**
@@ -9349,7 +9349,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Mostrar _MENU_ registros",
+			"sLengthMenu": "Mostrar _MENU_ registros.",
 		
 		
 			/**

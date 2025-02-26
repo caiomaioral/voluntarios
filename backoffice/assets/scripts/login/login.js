@@ -5,12 +5,6 @@ function verificaNumero(e)
 	}
 }
 
-function callback() 
-{
-	const submitButton = document.getElementById('wp-submit');
-	submitButton.removeAttribute('disabled');
-}
-
 $(document).ready(function(){
 
 });

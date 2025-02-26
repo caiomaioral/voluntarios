@@ -1,13 +1,9 @@
-					</div>
-				</div>
-				<div class="cleaner"></div>
-			</div>
-		</div>
-		<!--	
-		<div id="templatemo_footer_wrapper">
-			<div id="templatemo_footer">&reg; Todos os Direitos Reservados</div>
-		</div>
-        -->
-	</div>
+    </div>
+
+    <!-- Just an image -->
+    <footer class="mb-3 pt-1 text-center text-small">
+        <p>© <?php echo date('Y'); ?> PYNGAIADA FUTEBOL RESENHA.</p><br>
+    </footer>
+
 </body>
 </html>

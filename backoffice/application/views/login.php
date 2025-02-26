@@ -1,64 +1,68 @@
-<?php
-
-$attributes = array('id' => 'Login-Form', 'name' => 'Login-Form');
-
-echo form_open(base_url(), $attributes); 
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-
-    <title><?php echo NAME_SITE; ?></title>
-    
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-	<link rel="shortcut icon" href="https://boladeneve.com/sites/default/files/bola-icons_0_0.png" type="image/png" />    
-    
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	
-	<link href="<?php echo base_url(); ?>assets/css/login/login.css" rel="stylesheet" type="text/css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<!-- Favicons -->
-	<meta name="theme-color" content="#fff">
+    <title><?php echo $title; ?></title>
 
-	https://bootsnipp.com/snippets/bxzmb
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-</head>
-  
-<body class="bg-light">
-    <div class="container">
+    <?php echo $CssProjects; ?>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS -->
+    <script src="<?php echo base_url(); ?>assets/scripts/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+
+    <?php echo $AddJs; ?>
     
+</head>
+
+<body>
+    
+    <?php $attributes = array('id' => 'FormX', 'name' => 'FormX', 'class' => 'form'); ?>
+
+    <div id="login">
         <div class="py-5 text-center">
             <a href="<?php echo base_url(); ?>"><img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>assets/images/bola-de-neve-logo-preto.png" alt="" width="120" height="106"></a>
             <img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>assets/images/logo_siafsolutions_02.png" alt="" width="175" height="24">
-   		</div>
-	</div>
-
-    <div id="login">
-        <h3 class="text-center text-white pt-5">Login form</h3>
+   		</div>        
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
                         
-                            <h3 class="text-center text-info">Login</h3>
-                            <div class="form-group">
-                                <label for="username" class="text-info">Username:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                        <?php echo form_open(base_url() . 'login/enviar', $attributes); ?>
+
+                            <h3 class="text-left text-secondary pt-1">Login</h3>
+                            <h6 class="pb-3">Backoffice e-Enroll</h6>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">@</span>
+                                </div>
+                                <input type="text" id="login" name="login" class="form-control" placeholder="Login" aria-label="login" aria-describedby="basic-addon1">
                             </div>
-                            <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+
+                            <div class="input-group mb-3">
+                                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Senha" aria-label="senha" aria-describedby="basic-addon1">
                             </div>
+
+                            <div class="g-recaptcha" data-sitekey="6LcNVwsqAAAAANke5h78JPoWG5UYmfORb4A3Y4qH" data-action="Login" data-callback="callback"></div>
+                            
                             <div class="form-group">
-                                <label for="remember-me" class="text-info"><span>Esqueci minha senha</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                <input type="submit" name="submit" class="btn btn-dark mt-3" value="Entrar">
                             </div>
+
+                            <?php echo validation_errors('<div class="alert alert-danger" role="alert">', '</div>'); ?>
                         
+                        <?php echo form_close(); ?>
+
                     </div>
                 </div>
             </div>
@@ -66,5 +70,3 @@ echo form_open(base_url(), $attributes);
     </div>
 </body>
 </html>
-
-<?php echo form_close(); ?>

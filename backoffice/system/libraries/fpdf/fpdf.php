@@ -69,6 +69,15 @@ var $AliasNbPages;       // alias for total number of pages
 var $PDFVersion;         // PDF version number
 var $titulo;         	 // Titulo do relatorio
 
+//variables of html parser
+var $B;
+var $I;
+var $U;
+var $HREF;
+var $fontList;
+var $issetfont;
+var $issetcolor;
+
 /*******************************************************************************
 *                                                                              *
 *                               Public methods                                 *
@@ -102,6 +111,15 @@ function __construct($orientation='P', $unit='mm', $size='A4')
 	$this->TextColor = '0 g';
 	$this->ColorFlag = false;
 	$this->ws = 0;
+    //Initialization
+    $this->B=0;
+    $this->I=0;
+    $this->U=0;
+    $this->HREF='';
+    $this->fontlist=array('arial', 'times', 'courier', 'helvetica', 'symbol');
+    $this->issetfont=false;
+    $this->issetcolor=false;
+
 	// Font path
 	if(defined('FPDF_FONTPATH'))
 	{
@@ -416,20 +434,20 @@ function Footer()
 
 function Cabecalho($titulo)
 {
-    $this->SetFont('Arial', '', 12);
+	$this->SetFont('Arial', '', 12);
 
-    $this->Cell(0, 12, $titulo, 0, 0, 'C');
+	$this->Cell(0, 12, $titulo, 0, 0, 'C');
 
-	$this->Image('https://eventos.boladeneve.com/admin/assets/images/wmb_logo.jpg', 8, 5, 18, 18);
-
-    // Recua o texto verticalmente
-    $this->SetY("20");
-
-    // Recua o texto horizontalmente
-    $this->SetX("50");
-
-    // Conteúdo do artigo
-    $this->SetFont('arial', '', 7);	
+	//$this->Image('https://institutoglobal.com.br/tia_bootstrap/assets/images/logo.png', 8, 5, 18, 18);
+	
+	// Recua o texto verticalmente
+	$this->SetY("20");
+	
+	// Recua o texto horizontalmente
+	$this->SetX("50");
+	
+	// Conteúdo do artigo
+	$this->SetFont('arial', '', 7);	
 }
 
 function Rodape()
@@ -441,24 +459,7 @@ function Rodape()
 	$data = date('d/m/Y');
 	
 	$conteudo = 'Gerado em ' . $data;
-	$texto = 'Bola de Neve Eventos';
-	
-	// Imprime o rodapé
-	$this->Cell(0, 0, '', 1, 1, 'L');
-	$this->Cell(0, 5, $texto, 0, 0, 'L');
-	$this->Cell(0, 5, $conteudo, 0, 1, 'R');	
-}
-
-function RodapePaisagem()
-{
-	// Posição vertical
-	$this->SetY('184');
-	
-	// Data atual
-	$data = date('d/m/Y');
-	
-	$conteudo = 'Gerado em ' . $data;
-	$texto = 'Bola de Neve Eventos';
+	$texto = 'Instituto Global';
 	
 	// Imprime o rodapé
 	$this->Cell(0, 0, '', 1, 1, 'L');
@@ -481,20 +482,18 @@ function LinhaTabela($Situacao)
 function LinhaTabelaAlunosProva()
 {
 	$this->Cell(80, 5, 'Aluno', 1, 0, 'C');
-	$this->Cell(20, 5, 'Modulo', 1, 0, 'C');
 	$this->Cell(20, 5, 'Prova 1', 1, 0, 'C');
 	$this->Cell(20, 5, 'Prova 2', 1, 0, 'C');
 	$this->Cell(20, 5, 'Prova 3', 1, 0, 'C');
 	$this->Cell(20, 5, 'Prova 4', 1, 0, 'C');
-	$this->Cell(20, 5, 'Prova 5', 1, 0, 'C');
-	$this->Cell(20, 5, 'Prova 6', 1, 0, 'C');
+	$this->Cell(25, 5, utf8_decode('Frequência'), 1, 0, 'C');
 	$this->ln(5);
 }
 
 function Igreja($nome)
 {
 	$this->ln(8);
-	$this->Cell(30, 5, $nome, 0, 0, 'L');
+	$this->Cell(30, 5, 'BDN ' . $nome, 0, 0, 'L');
 	$this->ln(5);	
 }
 
@@ -1097,6 +1096,163 @@ function SetXY($x, $y)
 	$this->SetX($x);
 }
 
+function hex2dec($couleur = "#000000"){
+    $R = substr($couleur, 1, 2);
+    $rouge = hexdec($R);
+    $V = substr($couleur, 3, 2);
+    $vert = hexdec($V);
+    $B = substr($couleur, 5, 2);
+    $bleu = hexdec($B);
+    $tbl_couleur = array();
+    $tbl_couleur['R']=$rouge;
+    $tbl_couleur['V']=$vert;
+    $tbl_couleur['B']=$bleu;
+    return $tbl_couleur;
+}
+
+//conversion pixel -> millimeter at 72 dpi
+function px2mm($px){
+    return $px*25.4/72;
+}
+
+function txtentities($html){
+    $trans = get_html_translation_table(HTML_ENTITIES);
+    $trans = array_flip($trans);
+    return strtr($html, $trans);
+}
+
+function WriteHTML($html)
+{
+    //HTML parser
+    $html=strip_tags($html,"<b><u><i><a><img><p><br><strong><em><font><tr><blockquote>"); //supprime tous les tags sauf ceux reconnus
+    $html=str_replace("\n",' ',$html); //remplace retour à la ligne par un espace
+    $a=preg_split('/<(.*)>/U',$html,-1,PREG_SPLIT_DELIM_CAPTURE); //éclate la chaîne avec les balises
+    foreach($a as $i=>$e)
+    {
+        if($i%2==0)
+        {
+            //Text
+            if($this->HREF)
+                $this->PutLink($this->HREF,$e);
+            else
+                $this->Write(5,stripslashes(txtentities($e)));
+        }
+        else
+        {
+            //Tag
+            if($e[0]=='/')
+                $this->CloseTag(strtoupper(substr($e,1)));
+            else
+            {
+                //Extract attributes
+                $a2=explode(' ',$e);
+                $tag=strtoupper(array_shift($a2));
+                $attr=array();
+                foreach($a2 as $v)
+                {
+                    if(preg_match('/([^=]*)=["\']?([^"\']*)/',$v,$a3))
+                        $attr[strtoupper($a3[1])]=$a3[2];
+                }
+                $this->OpenTag($tag,$attr);
+            }
+        }
+    }
+}
+
+function OpenTag($tag, $attr)
+{
+    //Opening tag
+    switch($tag){
+        case 'STRONG':
+            $this->SetStyle('B',true);
+            break;
+        case 'EM':
+            $this->SetStyle('I',true);
+            break;
+        case 'B':
+        case 'I':
+        case 'U':
+            $this->SetStyle($tag,true);
+            break;
+        case 'A':
+            $this->HREF=$attr['HREF'];
+            break;
+        case 'IMG':
+            if(isset($attr['SRC']) && (isset($attr['WIDTH']) || isset($attr['HEIGHT']))) {
+                if(!isset($attr['WIDTH']))
+                    $attr['WIDTH'] = 0;
+                if(!isset($attr['HEIGHT']))
+                    $attr['HEIGHT'] = 0;
+                $this->Image($attr['SRC'], $this->GetX(), $this->GetY(), px2mm($attr['WIDTH']), px2mm($attr['HEIGHT']));
+            }
+            break;
+        case 'TR':
+        case 'BLOCKQUOTE':
+        case 'BR':
+            $this->Ln(5);
+            break;
+        case 'P':
+            $this->Ln(10);
+            break;
+        case 'FONT':
+            if (isset($attr['COLOR']) && $attr['COLOR']!='') {
+                $coul=hex2dec($attr['COLOR']);
+                $this->SetTextColor($coul['R'],$coul['V'],$coul['B']);
+                $this->issetcolor=true;
+            }
+            if (isset($attr['FACE']) && in_array(strtolower($attr['FACE']), $this->fontlist)) {
+                $this->SetFont(strtolower($attr['FACE']));
+                $this->issetfont=true;
+            }
+            break;
+    }
+}
+
+function CloseTag($tag)
+{
+    //Closing tag
+    if($tag=='STRONG')
+        $tag='B';
+    if($tag=='EM')
+        $tag='I';
+    if($tag=='B' || $tag=='I' || $tag=='U')
+        $this->SetStyle($tag,false);
+    if($tag=='A')
+        $this->HREF='';
+    if($tag=='FONT'){
+        if ($this->issetcolor==true) {
+            $this->SetTextColor(0);
+        }
+        if ($this->issetfont) {
+            $this->SetFont('arial');
+            $this->issetfont=false;
+        }
+    }
+}
+
+function SetStyle($tag, $enable)
+{
+    //Modify style and select corresponding font
+    $this->$tag+=($enable ? 1 : -1);
+    $style='';
+    foreach(array('B','I','U') as $s)
+    {
+        if($this->$s>0)
+            $style.=$s;
+    }
+    $this->SetFont('',$style);
+}
+
+function PutLink($URL, $txt)
+{
+    //Put a hyperlink
+    $this->SetTextColor(0,0,255);
+    $this->SetStyle('U',true);
+    $this->Write(5,$txt,$URL);
+    $this->SetStyle('U',false);
+    $this->SetTextColor(0);
+}
+
 function Output($name='', $dest='')
 {
 	// Output PDF to some destination
@@ -1161,21 +1317,15 @@ function Output($name='', $dest='')
 *******************************************************************************/
 function _dochecks()
 {
-	//if ( function_exists( 'get_magic_quotes_runtime' ) && get_magic_quotes_runtime() && version_compare( phpversion(), '5.4', '<' ) ) {
-	//	set_magic_quotes_runtime( false );
-	//}        
-
 	// Check availability of %F
 	if(sprintf('%.1F',1.0)!='1.0')
 		$this->Error('This version of PHP is not supported');
-	
 	// Check mbstring overloading
 	if(ini_get('mbstring.func_overload') & 2)
 		$this->Error('mbstring overloading must be disabled');
-	
 	// Ensure runtime magic quotes are disabled
-	//if(get_magic_quotes_runtime())
-	//	@set_magic_quotes_runtime(false);
+	if(get_magic_quotes_runtime())
+		@set_magic_quotes_runtime(0);
 }
 
 function _checkoutput()

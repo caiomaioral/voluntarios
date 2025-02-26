@@ -243,19 +243,16 @@ if ( ! function_exists('get_config'))
 		}
 
 		// Are any values being dynamically replaced?
-		if (count($replace) > 0)
-		{
-			foreach ($replace as $key => $val)
-			{
-				if (isset($config[$key]))
-				{
+		if (count($replace) > 0){
+			foreach ($replace as $key => $val){
+				if (isset($config[$key])){
 					$config[$key] = $val;
 				}
 			}
 		}
-
+		
 		$_config[0] =& $config;
-		return $_config[0]; 
+		return $_config[0];
 	}
 }
 
@@ -347,7 +344,7 @@ if ( ! function_exists('show_404'))
 */
 if ( ! function_exists('log_message'))
 {
-	function log_message($level = 'error', $message, $php_error = FALSE)
+	function log_message($level, $message, $php_error = FALSE)
 	{
 		static $_log;
 

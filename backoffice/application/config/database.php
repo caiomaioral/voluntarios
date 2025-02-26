@@ -48,18 +48,15 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-//
-// QA
-//
-//$db['default']['hostname'] = '192.168.100.88';
-//$db['default']['username'] = 'eventos_bola';
-//$db['default']['password'] = 'z525uVn_';
-//$db['default']['database'] = 'eventos_boladeneve_com';
+//$db['default']['hostname'] = '186.202.28.227';
+//$db['default']['username'] = 'pyngaiada';
+//$db['default']['password'] = 'Pyng2015CEP!@#$'; // Pyng2015CEP!@$
+//$db['default']['database'] = 'pyngaiada';
 
-$db['default']['hostname'] = '192.168.100.88';
-$db['default']['username'] = 'eventos_boladeneve';
-$db['default']['password'] = 'chOf%726';
-$db['default']['database'] = 'eventos_boladeneve';
+$db['default']['hostname'] = '186.202.152.36';
+$db['default']['username'] = 'radar_ppm';
+$db['default']['password'] = 'aBu777Agil8i8d';
+$db['default']['database'] = 'radar_ppm';
 
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';

@@ -13,10 +13,10 @@
 | always be used to set the mode correctly.
 |
 */
-define('FILE_READ_MODE',  0644);
+define('FILE_READ_MODE', 0644);
 define('FILE_WRITE_MODE', 0666);
-define('DIR_READ_MODE',   0755);
-define('DIR_WRITE_MODE',  0777);
+define('DIR_READ_MODE', 0755);
+define('DIR_WRITE_MODE', 0777);
 
 /*
 |--------------------------------------------------------------------------
@@ -36,38 +36,6 @@ define('FOPEN_READ_WRITE_CREATE',				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT',				'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
-/*
-|--------------------------------------------------------------------------
-| Payments
-|--------------------------------------------------------------------------
-|
-| Formas de pagamento
-|
-*/
-
-define('SEMVALOR',  0);
-define('DINHEIRO',  1);
-define('CREDITO',   2);
-define('DEBITO',    3);
-define('CHEQUE',    4);
-
-/*
-|--------------------------------------------------------------------------
-| Naturezas
-|--------------------------------------------------------------------------
-|
-| Natureza de Operações
-|
-*/
-
-define('ROMANEIO_ENTRADA',  1);
-define('ROMANEIO_SAIDA',    2);
-define('VENDA',             3);
-define('DESPESA',           4);
-define('RECEITA',           5);
-define('TRANSFERENCIA',     6);
-define('SALDOANTERIOR',     7);
-define('BOLETOS',           8);
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +46,32 @@ define('BOLETOS',           8);
 |
 */
 
-define('NAME_SITE', 'Bola de Neve Eventos');
+define('NAME_SITE', 'Backoffice e-Enroll | Bola de Neve Church');  		        // Nome do Site
+define('ADMINISTRATOR', 0);                                                     // Perfil de Administrador
+define('MANAGER',       1);                                                     // Perfil de Administrador
+define('OPERATOR',      2);                                                     // Perfil de Administrador
+
+/*
+|--------------------------------------------------------------------------
+| Payments
+|--------------------------------------------------------------------------
+|
+| Periodo de pagamento
+|
+*/
+
+define('TRIMESTRAL', 4); 	            # 1 = 20,00
+
+/*
+|--------------------------------------------------------------------------
+| Valores
+|--------------------------------------------------------------------------
+|
+| Valores dos boletos
+|
+*/
+
+define('VALOR_TRIMESTRAL', 70.00); 	    # 1 = 20,00
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */

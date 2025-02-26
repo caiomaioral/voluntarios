@@ -1,0 +1,337 @@
+﻿@charset "utf-8";
+/**********************************************************/
+/******* STYLES referente ao formulário de cadastro *******/
+/**********************************************************/
+
+input[type="checkbox"]
+{
+    padding-top: 20px;
+    width: 25px; /*Desired width*/
+    height: 25px; /*Desired height*/
+    cursor: pointer;
+}
+.valores 
+{
+    margin-top: 30px;
+}
+.chamada 
+{
+    margin-top: 50px;
+}
+.validation 
+{
+    margin-top: 10px;
+    color: #FF0000;
+}
+input[type="submit"] 
+{
+    padding-left: 5px;		
+}
+ol li 
+{
+    padding: 5px;	
+}
+#esquerda_up 
+{
+    display: table;
+    width: 100%;
+    border: 1px #000 solid;
+    padding: 0;
+}
+#payments 
+{
+    float: left;
+    width: 100%;
+    margin: 0 0 0 12px;
+}
+#payments .left_box 
+{
+    float: left;
+}
+#payments .right_box 
+{
+    float: left;
+    margin: 0 0 0 12px;
+}
+#Venda .vendas_left_box 
+{
+    float: left;
+}
+#Venda .vendas_right_box 
+{
+    float: left;
+    margin: 2px 0 0 12px;
+}
+#message 
+{
+    float: left;
+    width: 100%;
+}
+.right_box
+{
+    margin: 5px 20px 20px 20px;
+    float: left;
+}
+.right_box img
+{
+    margin: 15px 0 0 0;
+    border: 1px #000 dotted;
+}
+.right_box p
+{
+    font-weight: bold;
+}
+#Venda 
+{
+    float: left;
+    margin: 0 0 20px 10px;
+}
+#Venda h3 
+{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 0 8px 8px;
+}
+#venda_inteligente 
+{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+#installments
+{
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 10px;
+    margin-right: 10px;
+}
+#installments_compras
+{
+    font-size: 14px;
+    padding: 5px;
+}
+#Nome
+{
+    width: 420px;
+}
+#CPF
+{
+    width: 120px;
+}
+#Genero
+{
+    width: 170px;
+}
+#EstadoCivil
+{
+    width: 170px;
+}
+#Nascimento
+{
+    width: 100px;
+}
+#Residencial
+{
+    width: 130px;
+}
+#Comercial
+{
+    width: 130px;
+}
+#Celular
+{
+    width: 130px;
+}
+#CEP
+{
+    width: 80px;
+}
+#Endereco
+{
+    width: 290px;
+}
+#Bairro
+{
+    width: 200px;
+}
+#Cidade
+{
+    width: 220px;
+}
+#Profissao
+{
+    width: 290px;
+}
+#Tipo
+{
+	width: 160px;	
+}
+#Pagamento
+{
+	width: 160px;	
+}
+#Vencimento
+{
+	width: 120px;	
+}
+.boleto 
+{
+	display: none;
+}
+.cartao 
+{
+	display: none;
+}
+.ajax
+{
+	display: none;
+	position: fixed;
+}
+.overlay
+{
+	position: fixed;
+	z-index: 99;
+	top: 0px;
+	left: 0px;
+	background-color: #000;
+	width: 100%;
+	height: 100%;
+	filter: Alpha(Opacity=50);
+	opacity: 0.50;
+	-moz-opacity: 0.50;
+}
+* html .overlay
+{
+	position: absolute;
+	height: expression(document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px');
+	width: expression(document.body.scrollWidth > document.body.offsetWidth ? document.body.scrollWidth : document.body.offsetWidth + 'px');
+}
+.loader
+{
+	z-index: 290;
+	position: fixed;
+	width: 340px;
+	margin-left: -150px;
+	top: 40%;
+	left: 50%;
+	text-align: center;
+	border: 1px #FFF solid;
+	color: #000;
+	background-color: #cecece;
+}
+.loader img
+{
+	margin: 18px 8px;
+}
+.loader p
+{
+	margin: 20px 8px;
+}
+* html .loader
+{
+	position: absolute;
+	margin-top: expression((document.body.scrollHeight / 4) + (0 - parseInt(this.offsetParent.clientHeight / 2) + (document.documentElement && document.documentElement.scrollTop || document.body.scrollTop)) + 'px');
+}
+#caixa 
+{
+    display: table;
+    width: 100%;		
+}
+#esquerda  
+{
+    float: left;
+    width: 44%;
+    border: 1px #000 solid;
+    padding: 0 20px 20px 20px;
+    margin-right: 30px;
+}
+
+#direita 
+{
+    float: left;	
+    width: 44%;
+    border: 1px #000 solid;
+    padding: 0 20px 20px 20px;
+}
+.msg_error 
+{
+	padding-top: 10px;	
+}
+.tableless
+{
+	width: 500px;	
+}
+.tableless2
+{
+	width: 800px;	
+}
+.caution
+{
+    color: #FF0000;
+}
+
+/* payment
+----------------------------------------------------------*/   
+#Agencia
+{
+    width: 100px;
+} 
+
+#Agenciadig 
+{
+    width: 50px;
+}
+
+#Conta 
+{
+    width: 100px;
+} 
+
+#Contadig 
+{
+    width: 50px;
+}
+
+#Correntista
+{
+    width: 350px;
+}
+
+#CPF_Correntista
+{
+    width: 120px;
+}
+ol {
+    display: block;
+    list-style-type: none;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+#Venda, ol {
+    -webkit-padding-start: 0px;
+}
+
+.wish, input[type="button"] {
+	background-color: transparent;
+	border: 0px;
+	cursor: pointer;
+    color: #333;
+    outline: none;
+    text-decoration: underline;
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;        
+}  
+
+#clique_granito {
+	background-color: #d3dce0;
+	border: 1px solid #787878;
+	cursor: pointer;
+	font-size: 1.2em;
+	font-weight: 600;
+    padding: 7px;
+    text-decoration: none;
+    color: #000;
+}
