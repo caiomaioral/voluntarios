@@ -2,8 +2,7 @@
 
 class Autenticacao_model extends CI_Model {
 
-    private $usuarios     =   'tb_usuarios';
-    private $atletas      =   'tb_atletas';
+    private $enr_Staff     =   'enr_Staff';
 	
     public function __construct()
     {
@@ -19,7 +18,7 @@ class Autenticacao_model extends CI_Model {
                       ->where('Email', $Data['Login'])
                       ->where('Senha', $Data['Senha'])
                       ->where('Inativo', 0)
-                      ->get($this->atletas);
+                      ->get($this->enr_Staff);
 
         if($query->num_rows() > 0)
         {
@@ -29,6 +28,8 @@ class Autenticacao_model extends CI_Model {
             $this->load->library('session');
 
             $data = array('UltimoAcesso' => date('Y-m-d H:i:s'));
+
+            $this->db->update($this->enr_Staff, $data);
 
             return $query->row_array();
         } 
@@ -87,6 +88,7 @@ class Autenticacao_model extends CI_Model {
     public function alter_user($dados)
     {
         $this->db->where('idUsuario', $this->session->userdata('idUsuario'));
+
         return $this->db->update($this->usuarios, $dados);
     }        
 

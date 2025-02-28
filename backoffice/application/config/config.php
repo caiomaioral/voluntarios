@@ -250,12 +250,12 @@ $config['encryption_key'] = 'APANtByIGI1BpVXZTJgcsAG8GZl8pdwwa02';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']         =   'tiasession';
+$config['sess_cookie_name']         =   'enroll_session';
 $config['sess_expiration']          =   8600;
 $config['sess_expire_on_close']     =   FALSE;
 $config['sess_encrypt_cookie']      =   FALSE;
 $config['sess_use_database']        =   FALSE;
-$config['sess_table_name']          =   'tb_ci_sessions';
+$config['sess_table_name']          =   'enr_Sessions';
 $config['sess_match_ip']            =   FALSE;
 $config['sess_match_useragent']     =   TRUE;
 $config['sess_time_to_update']      =   300;
@@ -300,25 +300,8 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_expire' = The number in seconds the token should expire.
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-
-if(isset($_SERVER['REQUEST_URI'])) 
-{
-    if(stripos($_SERVER['REQUEST_URI'], '/pagamento') === FALSE)
-    {
-        $config['csrf_protection'] = TRUE;
-    }
-    else
-    {
-        $config['csrf_protection'] = FALSE;
-    } 
-} 
-else 
-{
-    $config['csrf_protection'] = TRUE;
-}
-
-$config['csrf_token_name']    = 'ci_csrf_token_py';
-$config['csrf_cookie_name']   = 'ci_csrf_token_py';
+$config['csrf_token_name']    = 'ci_csrf_token_enr';
+$config['csrf_cookie_name']   = 'ci_csrf_token_enr';
 $config['csrf_expire']        = 10000;
 $config['csrf_exclude_uris']  = array();
 

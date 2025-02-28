@@ -3,8 +3,6 @@
     echo $AddCss;
     echo $AddJavascripts;
 
-    $Admin = ($this->session->userdata('Admin') == 1)? 'MEMBRO DA COMISSÃO' : 'ATLETA PAGANTE';
-    
 ?>
 
 <div class="jumbotron">
@@ -12,48 +10,9 @@
         <div class="row">
         
             <div class="col-md-4 mb-0">
-                <?php
-
-                    $attributes = array('id' => 'FormX', 'name' => 'FormX');
-
-                    echo form_open_multipart(base_url() . 'home/upload', $attributes); 
-
-                ?>            
-                
-                <div class="avatar-wrapper">
-                    <img class="profile-pic" src="<?php echo base_url(); ?>/assets/upload/<?php echo $Avatar = ($this->session->userdata('Foto') == "")? "avatar-bg.png" : $this->session->userdata('Foto'); ?>" width="190" class="img-thumbnail">
-                    <div class="upload-button">
-                        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
-                    </div>
-                    <input id="FileAvatar" name="FileAvatar" class="file-upload" type="file" accept="image/jpeg"/>
-                </div>
-
-                <br><br>
-                <span class="badge bg-light text-dark">Desejável uma foto padrão 3x4</span>
-                <br>
-                <span class="badge bg-light text-dark">Só aceitamos imagens JPG</span>
-                <br>
-                <span class="badge bg-light text-dark">Tamanho máximo da foto de 1,5 MB</span>
-                <br><br>
-                
-                <?php if($error != '') echo '<div class="alert alert-danger" role="alert">' . $error['error'] . '</div>'; ?>
-                
-                <p class="mt-5"><strong>Nome: <?php echo $this->session->userdata('Nome'); ?></strong></p>
-                <p><strong>Matr&iacute;cula: <?php echo gera_matricula($this->session->userdata('Id')); ?></strong></p>
-                <p><strong><?php echo $this->session->userdata('Posicao'); ?></strong></p>
-                <p><strong><?php echo $Admin; ?></strong></p>
-
-                <div class="form-group mt-4">
-                    <a class="btn btn-secondary" href="<?php echo base_url(); ?>perfil" role="button">Alterar minha Senha</a>
-                </div>
-
-                <div class="form-group mt-4">
-                    <a class="btn btn-secondary" href="<?php echo base_url(); ?>feedbacks" role="button">Sugestões de Melhorias</a>
-                </div>                
-
-                <?php echo form_close(); ?>
 
             </div>
+
             <div class="col-md-8 mb-0">
                 <div id="accordion">
                     <div class="card">
@@ -66,7 +25,7 @@
                         </div>
                         <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="card-body">
-                                <?php echo $this->pagamento_model->Widget_Payment($this->session->userdata('Id')); ?>
+                                
                             </div>
                         </div>
                     </div>
@@ -129,60 +88,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Artilheiros
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                            <div class="card-body">
-                                
-                                <select id="Temporada" name="Temporada" class="form-control mb-3">
-                                <option value="2023" <?php if($Temporada == 2023) echo 'selected' ?>>ARTILHEIROS 2023</option>
-                                <option value="2024" <?php if($Temporada == 2024) echo 'selected' ?> selected>ARTILHEIROS 2024</option>
-                                <option value="2099" <?php if($Temporada == 2099) echo 'selected' ?>>ARTILHARIA GERAL</option>
-                                </select>                                 
-                                
-                                <div id="ListaArtilheiros"><?php echo $this->competicoes_model->Widget_Artilheiros(date('Y'), 'Home'); ?></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingFour">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                Assistências
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                            <div class="card-body">
-                                
-                                <select id="Assistencias" name="Assistencias" class="form-control mb-3">
-                                <option value="2024" <?php if($Assistencias == 2024) echo 'selected' ?> selected>ASSISTÊNCIAS 2024</option>
-                                </select>                                 
-                                
-                                <div id="ListaAssistencias"><?php echo $this->competicoes_model->Widget_Assistencias(date('Y'), 'Home'); ?></div>
-                            </div>
-                        </div>
-                    </div>                    
-                    <div class="card">
-                        <div class="card-header" id="headingFive">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Aniversariantes de <?php echo show_month(date('m')); ?>
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-                            <div class="card-body">
-                                <?php echo $this->elenco_model->Widget_Birthday(date('m')); ?>
-                            </div>
-                        </div>
-                    </div>                    
                 </div>
             </div>
 

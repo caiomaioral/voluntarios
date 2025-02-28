@@ -48,15 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-//$db['default']['hostname'] = '186.202.28.227';
-//$db['default']['username'] = 'pyngaiada';
-//$db['default']['password'] = 'Pyng2015CEP!@#$'; // Pyng2015CEP!@$
-//$db['default']['database'] = 'pyngaiada';
-
-$db['default']['hostname'] = '186.202.152.36';
-$db['default']['username'] = 'radar_ppm';
-$db['default']['password'] = 'aBu777Agil8i8d';
-$db['default']['database'] = 'radar_ppm';
+$db['default']['hostname'] = '192.168.100.88';
+$db['default']['username'] = 'dizimos';
+$db['default']['password'] = '42s5$Uvf99er';
+$db['default']['database'] = 'dizimos';
 
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';

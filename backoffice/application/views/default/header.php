@@ -27,7 +27,8 @@
 <div class="container-lg">
 
   <a class="navbar-brand pt-3 mb-3" href="<?php echo base_url(); ?>home">
-      <img src="<?php echo base_url(); ?>assets/images/pyngaiada.png" alt="" loading="lazy" />
+      <a href="<?php echo base_url(); ?>"><img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>assets/images/bola-de-neve-logo-preto.png" alt="" width="120" height="106"></a>
+      <img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>assets/images/logo_siafsolutions_02.png" alt="" width="175" height="24">
   </a>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark rounded">
