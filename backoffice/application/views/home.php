@@ -5,92 +5,182 @@
 
 ?>
 
-<div class="jumbotron">
-    <div class="col-sm-12 mx-auto">
-        <div class="row">
-        
-            <div class="col-md-4 mb-0">
-
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group mr-2">
+            <button class="btn btn-sm btn-outline-secondary">Compartilhar</button>
+            <button class="btn btn-sm btn-outline-secondary">Exportar</button>
             </div>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            Esta semana
+            </button>
+        </div>
+        </div>
 
-            <div class="col-md-8 mb-0">
-                <div id="accordion">
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed text-left" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Pagamentos de <?php echo date('Y'); ?>
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link text-left" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Regulamento de <?php echo date('Y'); ?>
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body">
+        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
-                                <h5 class="mb-3">Introdução</h5>
-                                <p class="mb-3">O time Pyngaiada foi fundado em 15 de outubro de 2015 por sócios e participantes de outros rachas do Clube Esportivo da Penha, com o intuito de dar oportunidade a jogadores de futebol amador de jogar. Sendo que a maioria dos rachas são formados por panelas e boleiros dificultando o jogador a participar desses grupos.</p>
+        <h2>Título da seção</h2>
+        <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Cabeçalho</th>
+                <th>Cabeçalho</th>
+                <th>Cabeçalho</th>
+                <th>Cabeçalho</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1,001</td>
+                <td>Lorem</td>
+                <td>ipsum</td>
+                <td>dolor</td>
+                <td>sit</td>
+            </tr>
+            <tr>
+                <td>1,002</td>
+                <td>amet</td>
+                <td>consectetur</td>
+                <td>adipiscing</td>
+                <td>elit</td>
+            </tr>
+            <tr>
+                <td>1,003</td>
+                <td>Integer</td>
+                <td>nec</td>
+                <td>odio</td>
+                <td>Praesent</td>
+            </tr>
+            <tr>
+                <td>1,003</td>
+                <td>libero</td>
+                <td>Sed</td>
+                <td>cursus</td>
+                <td>ante</td>
+            </tr>
+            <tr>
+                <td>1,004</td>
+                <td>dapibus</td>
+                <td>diam</td>
+                <td>Sed</td>
+                <td>nisi</td>
+            </tr>
+            <tr>
+                <td>1,005</td>
+                <td>Nulla</td>
+                <td>quis</td>
+                <td>sem</td>
+                <td>at</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>nibh</td>
+                <td>elementum</td>
+                <td>imperdiet</td>
+                <td>Duis</td>
+            </tr>
+            <tr>
+                <td>1,007</td>
+                <td>sagittis</td>
+                <td>ipsum</td>
+                <td>Praesent</td>
+                <td>mauris</td>
+            </tr>
+            <tr>
+                <td>1,008</td>
+                <td>Fusce</td>
+                <td>nec</td>
+                <td>tellus</td>
+                <td>sed</td>
+            </tr>
+            <tr>
+                <td>1,009</td>
+                <td>augue</td>
+                <td>semper</td>
+                <td>porta</td>
+                <td>Mauris</td>
+            </tr>
+            <tr>
+                <td>1,010</td>
+                <td>massa</td>
+                <td>Vestibulum</td>
+                <td>lacinia</td>
+                <td>arcu</td>
+            </tr>
+            <tr>
+                <td>1,011</td>
+                <td>eget</td>
+                <td>nulla</td>
+                <td>Class</td>
+                <td>aptent</td>
+            </tr>
+            <tr>
+                <td>1,012</td>
+                <td>taciti</td>
+                <td>sociosqu</td>
+                <td>ad</td>
+                <td>litora</td>
+            </tr>
+            <tr>
+                <td>1,013</td>
+                <td>torquent</td>
+                <td>per</td>
+                <td>conubia</td>
+                <td>nostra</td>
+            </tr>
+            <tr>
+                <td>1,014</td>
+                <td>per</td>
+                <td>inceptos</td>
+                <td>himenaeos</td>
+                <td>Curabitur</td>
+            </tr>
+            <tr>
+                <td>1,015</td>
+                <td>sodales</td>
+                <td>ligula</td>
+                <td>in</td>
+                <td>libero</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </main>
+    
 
-                                <h5 class="mb-3">Objetivo</h5>
-                                <p class="mb-3">O objetivo desse regulamento e colocar regras e estabelecer diretrizes para os jogadores e participantes da comissão.</p>
-
-                                <h5 class="mb-3">1º Regra ingressar novos jogadores</h5>
-                                <p class="mb-3">O atleta que desejar participar do Racha do Pyngaiada deve ser associado do Clube Esportivo da Penha e estar com a mensalidade em dia, ter a idade mínima de 40 anos de idade, exceto filho de jogador que poderá ingressar com menos idade. O participante vai passar por uma avaliação de disciplina e comprometimento com o time durante 04(quatro) sábados. Após essa peneira o jogador se torna parte do grupo. Durante esse período o atleta poderá ficar no banco de reserva mesmo cumprindo todos os requisitos estabelecidos para ser escalado.</p>
-                                <h5 class="mb-3">2º Regra escalação do time</h5>
-                                <p class="mb-3">A prioridade dos times que irão iniciar o jogo, vai ser definida pela ordem dos seguintes fatores:</p>
-                                <p class="mb-0">1º) Pagamento em dia:</p>
-                                <p class="mb-0">2º) Regularidade na frequência;</p>
-                                <p class="mb-3">3º) horário de chegada com nome na lista;</p>
-
-                                <p class="mb-3">Os integrantes da Comissão do Racha tem preferência de sair jogando, desde que esteja com o pagamento da mensalidade em dia e presente até o fechamento da lista.</p>
-                                <p class="mb-3">Para a formação dos Times. O Jogador com pendência no pagamento, não poderá participar do jogo exceto a Comissão permita que ele jogue.</p>
-                                <p class="mb-3">A abertura da lista é as 6:20 horas e o fechamento da lista 6:50 horas. O início da partida será ás 7:00 horas. Caso o jogador chegue fora do horário deve procurar alguém da comissão para verificar a possibilidade de colocar o nome na lista para jogar o segundo tempo.</p>
-                                <p class="mb-3">Substituição do jogador será por espontaneidade ou pelos mesmos fatores de escalação.</p>
-                                <p class="mb-3">Caso um dos times perca um jogador por lesão o mesmo ser substituído preferencialmente por um atleta da mesma posição.</p>
-
-                                <h5 class="mb-3">3º Regra local da partida</h5>
-                                <p class="mb-3">O local da partida será no Estádio. Caso o Estádio esteja interditado, será no Campo do meio ou no Campo do fundo, a ser definido pela comissão junto com os funcionários e responsável do clube.</p>
-                                <h5 class="mb-3">4º Regra dos Pagamentos</h5>
-                                <p class="mb-3">Para a manutenção do racha o atleta/jogador deverá contribuir com o valor de R$ <?php echo num_to_user(VALOR_TRIMESTRAL); ?> a cada trimestre sendo o primeiro pagamento de o dia 10 de fevereiro o segundo até 10 de maio, a terceira até 10 de agosto e a quarta até dia 10 de novembro. Totalizando R$ <?php echo num_to_user(VALOR_TRIMESTRAL * TRIMESTRAL); ?>.</p>
-                                <p class="mb-3">O pagamento deve ser feito até as datas mencionadas acima ao Sr. Sergio tesoureiro/financeiro do Racha.</p>
-                                <p class="mb-3">O atleta que ficar um período fora por motivos de força maior, deverá pagar as mensalidades em atraso para voltar a participar do Racha.</p>
-                                <p class="mb-3">Goleiro fixo, o pagamento é opcional, a ser definido pelo mesmo, optante em colaborar com o pagando da contribuição, entra nas mesmas regras dos jogadores de linha.</p>
-                                <p class="mb-3">O jogador que ingressar no Racha deve pagar a contribuição referente ao trimestre de ingresso logo após o fim do jogo.</p>
-                                <h5 class="mb-3">5º Regra das penalidades e disciplinas</h5>
-                                <p class="mb-3">É inadmissível palavrões, brigas e desrespeitos com qualquer colaborador ou jogador do grupo, podendo ser suspenso por 1 jogo a 3 jogos, ou até mesmo expulso do grupo dependendo da gravidade da ação e avaliação da comissão.</p>
-                                <p class="mb-3">Cartão Vermelho, o jogador será expulso da partida, após 5 minutos poderá ser substituído por outro atleta. O próximo jogo o Atleta não poderá participar como jogador. Caso não de quórum, o atleta poderá jogar pagamento multa de R$ 20,00 de forma disciplinar.</p>
-                                <p class="mb-3">O Atleta/Jogador que abandonar o campo por qualquer que seja o motivo, o próximo jogo ficará no banco de reserva, independente dos requisitos para a escalação. Caso não der quórum o jogador poderá pagar a taxa disciplinar no valor de R$ 20,00 para participar da partida desde o início.</p>
-                                <h5 class="mb-3">6º Regra das Festas</h5>
-                                <p class="mb-3">As confraternizações do grupo vão ser feitas com o intuito de interagir a aproximar mais os participantes. As datas e os valores a ser pagos por convidados serão informadas no grupo e com antecedência, é muito importante a participação de todos.</p>
-
-                                <h5 class="mb-3">Comissão do Pyngaiada <?php echo date('Y'); ?></h5>
-                                <p class="mb-0">Sergio – Financeiro</p>
-                                <p class="mb-0">Marcelo – Administrativo</p>
-                                <p class="mb-0">Fernando – Administrativo</p>
-                                <p class="mb-0">Beto – Eventos</p>
-                                <p class="mb-0">Cleber – Disciplina</p>
-                                <p class="mb-0">Edir – Disciplina</p>
-                                <p class="mb-0">Sergio e Cleber – Escalação</p>
-                                <p class="mb-0">William – Divulgação</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>             
-    </div>
-</div>
+<!-- Gráficos -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        datasets: [{
+        data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+        lineTension: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#007bff',
+        borderWidth: 4,
+        pointBackgroundColor: '#007bff'
+        }]
+    },
+    options: {
+        scales: {
+        yAxes: [{
+            ticks: {
+            beginAtZero: false
+            }
+        }]
+        },
+        legend: {
+        display: false,
+        }
+    }
+    });
+</script>

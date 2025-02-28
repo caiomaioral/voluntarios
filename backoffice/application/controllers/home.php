@@ -23,6 +23,6 @@ class Home extends MY_Controller {
     {
         $this->data['error']  =  "";
         
-        $this->usable('home');
+        $this->usable_system('home');
     }
 }

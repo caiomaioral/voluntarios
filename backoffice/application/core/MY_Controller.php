@@ -105,4 +105,52 @@ class MY_Controller extends CI_Controller {
 		
         $this->load->view($this->content, $this->data);
     }
+
+    /**
+     * Verifica se o usuário está logado no sistema
+     * Caso positivo o monta a pagina selecionada ou a pagina padrão
+     *
+     * @access	public
+     * @param	string Nome da view a ser carregada
+     */
+    public function usable_system($content)
+	{
+        if(isset($this->data['title']) == false) $this->data['title'] =  NAME_SITE . ' | ' . ucfirst($this->router->class);
+
+        $this->data['class'] = $this->router->class;
+
+        //
+        // Verificador da session
+        //
+        if($this->session->userdata('logado') == false)
+        {
+            redirect(base_url(), 'refresh');
+        }
+
+        // Gera o Conteudo
+        $this->content = $content;
+
+     	// Carrega os CSS
+        $this->data['CssBootstrap'] = load_bootstrap(array('bootstrap.min'));  
+        
+     	// Carrega os CSS
+        $this->data['CssProjects'] = load_css(array('site', 'dashboard')); 
+        
+		// Carrega o Javascript
+        $this->data['Javascripts'] = load_js(array('jquery-3.5.1',
+                                                   'jquery.validate', 
+                                                   'jquery.metadata', 
+                                                   'jquery-ui-1.8.16.custom.min', 
+                                                   'jquery.maskedinput-1.1.4.pack',
+                                                   'jquery.jBreadCrumb.1.1',                                                    
+                                                   'jquery.mask',
+                                                   'scripts'));
+
+        // Carrega os JS do Bootstrap
+        $this->data['JsBootstrap'] = load_bootstrap_js(array('bootstrap.min', 'bootstrap.bundle.min'));
+
+		$this->load->view('default/header_system', $this->data);
+		$this->load->view($this->content, $this->data);
+		$this->load->view('default/footer_system', $this->data);
+    }    
 }

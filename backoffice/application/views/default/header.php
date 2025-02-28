@@ -44,26 +44,17 @@
         <a class="nav-link <?php echo ($class == 'home')? 'active' : ''; ?>" href="<?php echo base_url(); ?>home">Home</a>
       </li>
 
-      <?php if($this->session->userdata('Admin') == 1){ ?>
-
-          <li class="nav-item">
-            <a class="nav-link <?php echo ($class == 'atletas')? 'active' : ''; ?>" href="<?php echo base_url(); ?>atletas">Atletas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?php echo ($class == 'financeiro')? 'active' : ''; ?>" href="<?php echo base_url(); ?>financeiro">Financeiro</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link <?php echo ($class == 'jogo')? 'active' : ''; ?>" href="<?php echo base_url(); ?>jogo">Dia do Jogo</a>
-          </li>                     
-
-      <?php } ?>
-
-      <li class="nav-item">
-        <a class="nav-link <?php echo ($class == 'elenco')? 'active' : ''; ?>" href="<?php echo base_url(); ?>elenco">Elenco</a>
-      </li>      
-      <li class="nav-item">
-        <a class="nav-link <?php echo ($class == 'competicoes')? 'active' : ''; ?>" href="<?php echo base_url(); ?>competicoes">Competições</a>
-      </li> 
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+          Dropdown button
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </div>
+       
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url(); ?>logoff">Sair</a>
       </li> 
