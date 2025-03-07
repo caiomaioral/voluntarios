@@ -122,7 +122,7 @@ class MY_Controller extends CI_Controller {
         //
         // Verificador da session
         //
-        if($this->session->userdata('logado') == false)
+        if($this->session->userdata('logado') == false) 
         {
             redirect(base_url(), 'refresh');
         }
@@ -136,11 +136,15 @@ class MY_Controller extends CI_Controller {
      	// Carrega os CSS
         $this->data['CssProjects'] = load_css(array('site', 'dashboard')); 
         
+        //  https://code.jquery.com/jquery-3.7.1.js
+        //  https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js
+        //  https://cdn.datatables.net/2.2.2/js/dataTables.js
+        //  https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js
+
 		// Carrega o Javascript
-        $this->data['Javascripts'] = load_js(array('jquery-3.5.1',
+        $this->data['Javascripts'] = load_js(array('jquery-3.7.1',
                                                    'jquery.validate', 
                                                    'jquery.metadata', 
-                                                   'jquery-ui-1.8.16.custom.min', 
                                                    'jquery.maskedinput-1.1.4.pack',
                                                    'jquery.jBreadCrumb.1.1',                                                    
                                                    'jquery.mask',
