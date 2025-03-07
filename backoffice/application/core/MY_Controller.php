@@ -136,11 +136,6 @@ class MY_Controller extends CI_Controller {
      	// Carrega os CSS
         $this->data['CssProjects'] = load_css(array('site', 'dashboard')); 
         
-        //  https://code.jquery.com/jquery-3.7.1.js
-        //  https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js
-        //  https://cdn.datatables.net/2.2.2/js/dataTables.js
-        //  https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js
-
 		// Carrega o Javascript
         $this->data['Javascripts'] = load_js(array('jquery-3.7.1',
                                                    'jquery.validate', 
@@ -156,5 +151,24 @@ class MY_Controller extends CI_Controller {
 		$this->load->view('default/header_system', $this->data);
 		$this->load->view($this->content, $this->data);
 		$this->load->view('default/footer_system', $this->data);
+    } 
+    
+    /**
+     * Verifica se o usuário está logado no sistema
+     * Caso positivo o monta a pagina selecionada ou a pagina padrão
+     *
+     * @access	public
+     * @param	string Nome da view a ser carregada
+     */
+    public function usable_teste($content)
+	{
+		if(isset($this->data['title']) == false)  
+		
+		$this->data['title'] = NAME_SITE;
+		
+        // Gera o Conteudo
+        $this->content = $content;
+
+        $this->load->view($this->content, $this->data);
     }    
 }

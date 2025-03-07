@@ -1,38 +1,16 @@
-<?php 
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
 
-    echo $AddCss;
-    echo $AddJavascripts;
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
 
-?>
 
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    
+    <h3>Pesquisar Dados</h3>
+    <div class="table-responsive">
 
-    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
-
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Dashboard</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-                <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Compartilhar</button>
-                <button class="btn btn-sm btn-outline-secondary">Exportar</button>
-                </div>
-                <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                <span data-feather="calendar"></span>
-                Esta semana
-                </button>
-            </div>
-        </div>
-
-        <canvas class="my-4 w-100" id="myChart" width="900" height="250"></canvas>
-        <br>
-
-        <h3>Pesquisar Dados</h3>
-        <div class="table-responsive">
-
-            <table id="example" class="table table-striped" style="width:100%">
-            <thead>
+        <table id="example" class="table table-striped" style="width:100%">
+        <thead>
             <tr>
                 <th>Name</th>
                 <th>Position</th>
@@ -210,102 +188,6 @@
                 <td>30</td>
                 <td>2011-09-03</td>
                 <td>$345,000</td>
-            </tr>
-            <tr>
-                <td>Yuri Berry</td>
-                <td>Chief Marketing Officer (CMO)</td>
-                <td>New York</td>
-                <td>40</td>
-                <td>2009-06-25</td>
-                <td>$675,000</td>
-            </tr>
-            <tr>
-                <td>Caesar Vance</td>
-                <td>Pre-Sales Support</td>
-                <td>New York</td>
-                <td>21</td>
-                <td>2011-12-12</td>
-                <td>$106,450</td>
-            </tr>
-            <tr>
-                <td>Doris Wilder</td>
-                <td>Sales Assistant</td>
-                <td>Sydney</td>
-                <td>23</td>
-                <td>2010-09-20</td>
-                <td>$85,600</td>
-            </tr>
-            <tr>
-                <td>Angelica Ramos</td>
-                <td>Chief Executive Officer (CEO)</td>
-                <td>London</td>
-                <td>47</td>
-                <td>2009-10-09</td>
-                <td>$1,200,000</td>
-            </tr>
-            <tr>
-                <td>Gavin Joyce</td>
-                <td>Developer</td>
-                <td>Edinburgh</td>
-                <td>42</td>
-                <td>2010-12-22</td>
-                <td>$92,575</td>
-            </tr>
-            <tr>
-                <td>Jennifer Chang</td>
-                <td>Regional Director</td>
-                <td>Singapore</td>
-                <td>28</td>
-                <td>2010-11-14</td>
-                <td>$357,650</td>
-            </tr>
-            <tr>
-                <td>Brenden Wagner</td>
-                <td>Software Engineer</td>
-                <td>San Francisco</td>
-                <td>28</td>
-                <td>2011-06-07</td>
-                <td>$206,850</td>
-            </tr>
-            <tr>
-                <td>Fiona Green</td>
-                <td>Chief Operating Officer (COO)</td>
-                <td>San Francisco</td>
-                <td>48</td>
-                <td>2010-03-11</td>
-                <td>$850,000</td>
-            </tr>
-            <tr>
-                <td>Shou Itou</td>
-                <td>Regional Marketing</td>
-                <td>Tokyo</td>
-                <td>20</td>
-                <td>2011-08-14</td>
-                <td>$163,000</td>
-            </tr>
-            <tr>
-                <td>Michelle House</td>
-                <td>Integration Specialist</td>
-                <td>Sydney</td>
-                <td>37</td>
-                <td>2011-06-02</td>
-                <td>$95,400</td>
-            </tr>
-            <tr>
-                <td>Suki Burks</td>
-                <td>Developer</td>
-                <td>London</td>
-                <td>53</td>
-                <td>2009-10-22</td>
-                <td>$114,500</td>
-            </tr>
-            <tr>
-                <td>Prescott Bartlett</td>
-                <td>Technical Author</td>
-                <td>London</td>
-                <td>27</td>
-                <td>2011-05-07</td>
-                <td>$145,000</td>
             </tr>
             <tr>
                 <td>Gavin Cortez</td>
@@ -499,43 +381,45 @@
                 <td>2011-01-25</td>
                 <td>$112,000</td>
             </tr>
-            </tbody>
-            </table>
-        
-        </div>
-    </main>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+        </table>
     
+    </div>
+</main>
 
-<!-- Gráficos -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 <script>
 
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-        datasets: [{
-        data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-        lineTension: 0,
-        backgroundColor: 'transparent',
-        borderColor: '#007bff',
-        borderWidth: 4,
-        pointBackgroundColor: '#007bff'
-        }]
-    },
-    options: {
-        scales: {
-        yAxes: [{
-            ticks: {
-            beginAtZero: false
-            }
-        }]
+$(function() {
+
+    const oTable = $('#example').DataTable({
+        bProcessing: true,
+        bJQueryUI: true,
+        bDestroy: true,
+        sServerMethod: "POST",
+        sDom: '<"H"Cfr>t<"F"ip>',
+        oColVis: {
+            buttonText: "Ocultar Colunas"
         },
-        legend: {
-        display: false,
-        }
-    }
+        sPaginationType: "full_numbers",
+        aoColumnDefs: [
+            {
+                sClass: "center", aTargets: [0]
+            }
+        ],
+        iDisplayLength: 50,
+        aaSorting: [[1, "asc"]],
     });
-    
+
+});
+
 </script>
