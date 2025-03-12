@@ -1,3 +1,11 @@
+<?php
+
+  $home            =    ($this->data['class'] == 'home')? 'active' : '';
+  $upload          =    ($this->data['class'] == 'upload')? 'active' : '';
+  $colaboradores   =    ($this->data['class'] == 'colaboradores')? 'active' : '';
+  $relatorios      =    ($this->data['class'] == 'relatorios')? 'active' : '';
+
+?>
 <!doctype html>
 <html lang="pt">
 <head>
@@ -21,13 +29,7 @@
     
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="https://www.siafsolutions.com.br/" target="_blank"><img src="<?php echo base_url(); ?>assets/images/logo_siafsolutions_02.png" alt="" width="175" height="24"></a>
     
-    <!--
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">Sair</a>
-      </li>
-    </ul>
-    -->
+
 </nav>
 
 <div class="container-fluid">
@@ -45,19 +47,25 @@
               </li>          
           
               <li class="nav-item">
-                <a class="nav-link active" href="<?php echo base_url(); ?>home">
+                <a class="nav-link <?php echo $home; ?>" href="<?php echo base_url(); ?>home">
                     <span data-feather="home"></span>
-                    Dashboard <span class="sr-only">(atual)</span>
+                    Dashboard
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url(); ?>colaboradores">
+                <a class="nav-link <?php echo $upload; ?>" href="<?php echo base_url(); ?>upload">
+                    <span data-feather="upload"></span>
+                    Upload de Contatos 
+                </a>
+              </li>              
+              <li class="nav-item">
+                <a class="nav-link <?php echo $colaboradores; ?>" href="<?php echo base_url(); ?>colaboradores">
                     <span data-feather="users"></span>
                     Colaboradores
                 </a>
               </li>
               <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url(); ?>relatorios">
+              <a class="nav-link <?php echo $relatorios; ?>" href="<?php echo base_url(); ?>relatorios">
                   <span data-feather="bar-chart-2"></span>
                   Relatórios
               </a>

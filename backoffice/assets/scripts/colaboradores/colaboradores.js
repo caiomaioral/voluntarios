@@ -16,6 +16,9 @@ $(function() {
     });    
 
     /*
+
+    https://datatables.net/examples/server_side/row_details.html
+    
     const oTable = $('#example').dataTable({
 
         "bProcessing": true,
