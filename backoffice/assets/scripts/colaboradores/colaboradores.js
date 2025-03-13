@@ -10,7 +10,7 @@ $(function() {
     //});
 
     $('#example').DataTable({
-        ajax: 'http://localhost:81/voluntarios/backoffice/colaboradores/listar_ajax',
+        ajax: 'http://localhost:81/signature/backoffice/colaboradores/listar_ajax',
         processing: true,
         serverSide: true
     });    

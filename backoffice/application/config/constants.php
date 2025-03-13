@@ -46,7 +46,7 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 |
 */
 
-define('NAME_SITE', 'Backoffice e-Enroll | Bola de Neve Church');  		        // Nome do Site
+define('NAME_SITE', 'Backoffice e-Signature | Bola de Neve Church');	        // Nome do Site
 define('ADMINISTRATOR', 0);                                                     // Perfil de Administrador
 define('MANAGER',       1);                                                     // Perfil de Administrador
 define('OPERATOR',      2);                                                     // Perfil de Administrador

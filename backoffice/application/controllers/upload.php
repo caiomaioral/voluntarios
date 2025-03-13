@@ -17,8 +17,8 @@ class Upload extends MY_Controller {
     //
     public function index()
     {
-        $this->data['AddCss']  		     =   load_css(array('home/home'));
-        $this->data['AddJavascripts']    =   load_js(array('colaboradores/colaboradores'));
+        $this->data['AddCss']  		     =   load_css(array('upload/upload'));
+        $this->data['AddJavascripts']    =   load_js(array('upload/upload'));
 
         $this->usable_system('upload');
     }

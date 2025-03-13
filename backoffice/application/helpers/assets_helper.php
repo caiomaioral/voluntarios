@@ -103,6 +103,29 @@ if ( ! function_exists('load_css'))
 }
 
 /*
+* Method to load scss files into your project.
+* @param array $scss
+*/
+
+if ( ! function_exists('load_scss'))
+{
+    function load_scss($css)
+    {
+        if ( ! is_array($css))
+        {
+            $css = (array) $css;
+        }
+
+        $return = '';
+        foreach ($css as $c)
+        {
+            $return .= '<link rel="stylesheet" href="' . base_url() . 'assets/css/' . $c . '.scss"/>' . "\n";
+        }
+        return $return;
+    }
+}
+
+/*
 * Method to load javascript files into your project.
 * @param array $js
 */

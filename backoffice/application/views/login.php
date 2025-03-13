@@ -39,7 +39,7 @@
                         <?php echo form_open(base_url() . 'login/enviar', $attributes); ?>
 
                             <h3 class="text-left text-secondary pt-1">Login</h3>
-                            <h6 class="pb-3">Backoffice e-Enroll</h6>
+                            <h6 class="pb-3">Backoffice e-Signature</h6>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">

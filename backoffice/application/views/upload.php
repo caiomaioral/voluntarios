@@ -5,18 +5,26 @@
 
 ?>
 
-<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css" />
-
-<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
-
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
     
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Carga de Colaboradores</h1>
+        <h3 class="h3">Carga de Colaboradores</h3>
     </div>
 
     <div class="table-responsive">
 
+        <div class="alert alert-primary" role="alert">
+            O primeiro passo é obter uma planilha no formato <strong>XLSX</strong> ou <strong>XLS</strong>, onde a primeira coluna conterá exclusivamente os e-mails das pessoas, preferencialmente em letras minúsculas e sem espaços.<br><br>Após carregar a planilha, cada um dos e-mails será enviado com um link para que o usuário possa atualizar seu cadastro, além de receber o termo para assinatura por e-mail.
+        </div>
+
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFileLang" accept=".xlsx,.xls">
+            <label class="custom-file-label" for="customFileLang" data-browse="Selecionar Arquivo">Selecione um arquivo XLSX</label>
+        </div> 
+
+        <div class="form-group">
+            <input type="submit" name="submit" class="btn btn-dark mt-3" value="Carregar Dados">
+        </div>        
         
     </div>
 </main>
