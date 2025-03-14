@@ -8,6 +8,11 @@
 
     <title><?php echo $title; ?></title>
 
+    <noscript>
+    Este site necessita de Javascript habilitado no navegador para funcionar.
+    <style>div { display:none; }</style>
+    </noscript>     
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
@@ -29,7 +34,7 @@
 
     <div id="login">
         <div class="py-5 text-center">
-            <a href="<?php echo base_url(); ?>"><img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>assets/images/bola-de-neve-logo-preto.png" alt="" width="120" height="106"></a>
+            <a href="<?php echo base_url(); ?>"><img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>assets/images/bola_logo.png" alt="" width="200" height="47"></a>
    		</div>        
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">

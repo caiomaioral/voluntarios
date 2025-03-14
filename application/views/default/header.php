@@ -30,5 +30,5 @@
     <div class="container">
     
         <div class="py-5 text-center">
-            <a href="<?php echo base_url(); ?>"><img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>assets/images/bola-de-neve-logo-preto.png" alt="" width="120" height="106"></a>
+            <a href="<?php echo base_url(); ?>"><img class="d-block mx-auto mb-4" src="<?php echo base_url(); ?>assets/images/bola_logo.png" alt="" width="200" height="47"></a>
     		</div>

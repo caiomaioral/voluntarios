@@ -2,7 +2,7 @@
 
 class Autenticacao_model extends CI_Model {
 
-    private $enr_Staff     =   'enr_Staff';
+    private $Staff    =   'sig_Staff';
 	
     public function __construct()
     {
@@ -18,7 +18,7 @@ class Autenticacao_model extends CI_Model {
                       ->where('Email', $Data['Login'])
                       ->where('Senha', $Data['Senha'])
                       ->where('Inativo', 0)
-                      ->get($this->enr_Staff);
+                      ->get($this->Staff);
 
         if($query->num_rows() > 0)
         {
@@ -29,7 +29,7 @@ class Autenticacao_model extends CI_Model {
 
             $data = array('UltimoAcesso' => date('Y-m-d H:i:s'));
 
-            $this->db->update($this->enr_Staff, $data);
+            $this->db->update($this->Staff, $data);
 
             return $query->row_array();
         } 

@@ -42,7 +42,7 @@
               
               <li class="nav-item">
                 <a class="nav-link active" href="https://boladeneve.com/" target="_blank">
-                    <img class="mb-2" src="<?php echo base_url(); ?>assets/images/bola-de-neve-logo-preto.png" alt="" width="100" height="88">
+                    <img class="mt-3 mb-3" src="<?php echo base_url(); ?>assets/images/bola_logo.png" alt="" width="150" height="35">
                 </a>
               </li>          
           

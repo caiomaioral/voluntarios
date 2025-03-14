@@ -2,7 +2,7 @@
 
 class Colaboradores extends MY_Controller {
 
-    private $Participantes  =  'enr_Participantes';
+    private $Participantes  =  'sig_Participantes';
 
     public function __construct()
     {

@@ -45,12 +45,11 @@ $config = array(
     ),
 
     //
-    // Validacao do formulário de envio de feedback
+    // Validacao do formulário de upload de contatos para assinatura
     //
-    'feedbacks/enviar' => array(
+    'upload/excel' => array(
 
-      array('field'=>'Sugestao',
-            'rules'=>'trim|required',
-            'label'=>'<strong>SUGESTÃO</strong>')
+      array('field'=>'customFile',
+            'rules'=>'callback_handle_upload'),
   ),    
 );

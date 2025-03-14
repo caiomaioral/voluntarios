@@ -3,6 +3,10 @@
     echo $AddCss;
     echo $AddJavascripts;
 
+    $attributes = array('id' => 'FormX', 'name' => 'FormX');
+
+    echo form_open_multipart(base_url() . 'upload/excel', $attributes); 
+
 ?>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -18,9 +22,11 @@
         </div>
 
         <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFileLang" accept=".xlsx,.xls">
-            <label class="custom-file-label" for="customFileLang" data-browse="Selecionar Arquivo">Selecione um arquivo XLSX</label>
+            <input type="file" class="custom-file-input" id="customFile" name="customFile" accept=".xlsx,.xls">
+            <label class="custom-file-label" for="customFile" data-browse="Selecionar Arquivo">Selecione um arquivo XLSX</label>
         </div> 
+
+        <?php echo validation_errors('<div class="alert alert-danger mt-3" role="alert">', '</div>'); ?>
 
         <div class="form-group">
             <input type="submit" name="submit" class="btn btn-dark mt-3" value="Carregar Dados">
@@ -28,3 +34,5 @@
         
     </div>
 </main>
+
+<?php echo form_close(); ?>
